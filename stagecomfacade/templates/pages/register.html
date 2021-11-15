@@ -1,0 +1,61 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static './css/inputstyle.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="wrapper">
+  <h2>Registration</h2>
+  <form action="#">
+    <div class="input-box">
+      <label class="custom-field one">
+        <input type="text" placeholder=" " required>
+        <span class="placeholder">Enter Text</span>
+      </label>
+    </div>
+    <div class="input-box">
+      <label class="custom-field one">
+        <input type="email" placeholder=" " required>
+        <span class="placeholder">Enter your email</span>
+      </label>
+      <!-- <input type="text" placeholder="Enter your email" required> -->
+    </div>
+    <div class="input-box">
+      <label class="custom-field one">
+        <input type="password" placeholder=" " required>
+        <span class="placeholder">Create password</span>
+      </label>
+      <!-- <input type="password" placeholder="Create password" required> -->
+    </div>
+    <div class="input-box">
+      <!-- <input type="password" placeholder="Confirm password" required> -->
+      <label class="custom-field one">
+        <input type="password" placeholder=" " required>
+        <span class="placeholder">Confirm password</span>
+      </label>
+    </div>
+    <div class="policy">
+      <input type="checkbox">
+      <h3>I accept all terms & condition</h3>
+    </div>
+    <div class="input-box button">
+      <input type="Submit" value="Register Now">
+    </div>
+    <div class="text">
+      <h3>Already have an account? <a href="#">Login now</a></h3>
+    </div>
+  </form>
+</div>
+
+<!-- <label class="custom-field one">
+    <input type="text" placeholder=" "/>
+    <span class="placeholder">Enter Text</span>
+  </label> -->
+  
+{% endblock content %} 
+
+{% block js %}
+  <script src="{% static './js/inputs.js' %}"></script>
+{% endblock js %}

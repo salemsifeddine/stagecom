@@ -13,5 +13,5 @@ def  home(request):
 def courses(request):
 
     context={"courses":Course.objects.all()}
-    return render(request, "pages/courses.html",context)
+    return render(request, "pages/register.html",context)
 

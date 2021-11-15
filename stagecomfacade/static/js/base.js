@@ -34,9 +34,9 @@ $(window).on("load",function(e){
 var listscrolleft= document.getElementById("revscroll");
   
     
-var scrolleftrev = setInterval(() => {
-    listscrolleft.style.left = 0;
-    listscrolleft.style.transitionDuration ="0px"
+
+listscrolleft.style.left = 0;
+listscrolleft.style.transitionDuration ="0px"
     
-}, 1000);
+
 

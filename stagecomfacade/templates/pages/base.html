@@ -11,8 +11,14 @@
     <link rel="icon" href="{% static './images/ha logo ta3kom/icon blue.png' %}"  type = "image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="{% static './css/base.css' %}">
+    {% block css %}
+
+    {% endblock css %}
 </head>
 <body>
+    <div id="preloader">
+
+    </div>
     <header id="header">
         <div class="container">
             
@@ -25,9 +31,17 @@
                         StageCom
                     </div>
                 </div>
+                
+               
+                    <ul class="nav-links">
+                        <li class="center"><a href="#">Portfolio</a></li>
+                        <li class="center"><a href="#">Services</a></li>
+                        <li class="center"><a href="#">Feedback</a></li>
+                    </ul>
+                
                 <div>
                     <div style="display: inline-block !important;">
-                        <a href="/" class="button button-small anchor">Get Started</a>
+                        <a href="{% url 'register' %}" class="button button-small anchor">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -94,5 +108,17 @@
     </footer>
     <script src="{% static './js/jquery.js' %}"></script> 
     <script src="{% static './js/base.js' %}"></script>
+    {% block js %}
+
+    {% endblock js %}
+
+    <script>
+        var loader =document.getElementById("preloader");
+
+        window.addEventListener("load",function(){
+            loader.style.display="none"
+        })
+
+    </script>
 </body>
 </html>
