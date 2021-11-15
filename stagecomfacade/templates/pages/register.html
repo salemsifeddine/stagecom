@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static './css/inputstyle.css' %}">
+    <link rel="stylesheet" href="{% static './css/register.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -12,7 +12,7 @@
     <div class="input-box">
       <label class="custom-field one">
         <input type="text" placeholder=" " required>
-        <span class="placeholder">Enter Text</span>
+        <span class="placeholder">Create username</span>
       </label>
     </div>
     <div class="input-box">
@@ -40,11 +40,12 @@
       <input type="checkbox">
       <h3>I accept all terms & condition</h3>
     </div>
-    <div class="input-box button">
-      <input type="Submit" value="Register Now">
-    </div>
+    <!-- <div class="input-box button"> -->
+      <!-- <input type="Submit" value="Register Now"> -->
+      <a href="/" class="button button-small anchor" style="margin-bottom: 15px">Register Now</a>
+    <!-- </div> -->
     <div class="text">
-      <h3>Already have an account? <a href="#">Login now</a></h3>
+      <h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
     </div>
   </form>
 </div>

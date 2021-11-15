@@ -17,7 +17,24 @@
 </head>
 <body>
     <div id="preloader">
-
+        <h3>StageCom</h3>
+        <!-- <div class="dots">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+            <span style="--i:8;"></span>
+            <span style="--i:9;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:15;"></span>
+          </div> -->
     </div>
     <header id="header">
         <div class="container">
@@ -34,9 +51,9 @@
                 
                
                     <ul class="nav-links">
-                        <li class="center"><a href="#">Portfolio</a></li>
-                        <li class="center"><a href="#">Services</a></li>
-                        <li class="center"><a href="#">Feedback</a></li>
+                        <li class="upward"><a href="#">Portfolio</a></li>
+                        <li class="upward"><a href="#">Services</a></li>
+                        <li class="upward"><a href="#">Feedback</a></li>
                     </ul>
                 
                 <div>
@@ -116,7 +133,13 @@
         var loader =document.getElementById("preloader");
 
         window.addEventListener("load",function(){
-            loader.style.display="none"
+            if(window.location.pathname=='/'){
+                setTimeout(() => {
+                    loader.style.display="none"
+                }, 1500);
+            }else{
+                loader.style.display="none"
+            }
         })
 
     </script>

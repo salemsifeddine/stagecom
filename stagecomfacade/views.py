@@ -10,8 +10,16 @@ from django.db.models import Count
 def  home(request):
     return render(request, "pages/home.html",{})
 
-def courses(request):
+def register(request):
 
     context={"courses":Course.objects.all()}
     return render(request, "pages/register.html",context)
 
+def login(request):
+    context={}
+    return render(request, "pages/login.html",context)
+
+def courses(request):
+
+    context={"courses":Course.objects.all()}
+    return render(request, "pages/courses.html",context)

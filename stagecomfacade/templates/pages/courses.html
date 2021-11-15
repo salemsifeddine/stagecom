@@ -1,47 +1,157 @@
 {% extends "pages/base.html" %}
 {% load static %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static './css/courses.css' %}">
+{% endblock css %}
+
+
 {% block content %}
 
 
-<section class="index-mosaic content mosaic">
-    <div class=" shape-before shape-after"> </div>
-    <div class="container container-content"> 
-        <div class="row">
-            <div class="col-lg-11 col-xl-10"> 
-                <h2>A single plugin.<br>Everything forms.
-                    <span class="lineyellow">Totally stand-alone.</span>
-                </h2> 
-            </div> 
-        </div> 
-        <div class="row"> 
-            <div class="col-md-11 col-lg-10"> 
-                <p>That’s right! The plugin runs a stand-alone, 
-                    <strong>fullblown form builder and all storage</strong> 
-                    right inside your WordPress without any dependencies on outside infrastructure. No strings attached!
-                </p> 
-                <a href="product/" class="hyperlink">
-                <span>Take the product tour</span>
-                <i class="fas fa-arrow-right"></i>
-                </a> 
-            </div> 
-        </div> 
-    </div> 
-    <div class="container container-mosaic"> 
-        <div class="row mosaic-row-top shape-before"> 
-            {% for course in courses %}
-            <a href="product/#hosting" class="mosaic-block mosaic-block-vertical palette-hosting"> 
-                <div> 
-                    <h3>{{course.title}}</h3> 
-                    <p>{{course.subject.title}}. 
-                     
-                        by <strong> {{course.owner}}</strong></p> </div> 
-                        <img src="{% static './images/hosting.svg' %}" 
-                        alt="Illustration representing data storage freedom"> 
-            </a> 
+<section class="containerCourses">
+    <div class="imgwrapper">
+        <img src="{%  static './images/hosting.svg' %}" alt="">
+    </div>
+    <div class="textwrapper">
+        <h3>
+            The Algerian's Largest Selection of courses
+        </h3>
+        <span>salem szsodkqsopd</span>
+        <br>
+        
+    </div>
+    <button style="border-radius: 50px;" class="button btncourses">
+        <!-- <a href="/" class=" button-large">Get Started Now</a> -->
+        Get started
+    </button>
+</section>
+
+
+<section class="courses">
+    <div class="container">
+       <div class="text-courses-above">
+        <p>
+            Explore variety of <strong>quality courses and gain new skills</strong> 
+            to head start a succesfull career
+        </p>
+       </div>
+       <div class="row">
+        <div class="course">
+            <div class="imgcourse">
+                <img src="{% static './images/course.jpg' %}" alt="">
+            </div>
             
-            {% endfor %}
-        </div> 
-    </div> 
+            <div class="infocourse">
+                <div class="course-level">
+                    all levels
+                </div>
+                <div class="save-course">
+                 <i class="lni lni-bookmark"></i>
+                </div>
+
+                <div class="course-rate">
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                </div>
+
+                <div class="title-course">
+                    <p>
+                        Django Framework - build websites with django, python.
+                    </p>
+                </div>
+
+                <div class="timing-views">
+                    <div class="views">
+                     <i class="lni lni-users"></i> <span>2</span>
+                    </div>
+                    <div class="timing">
+                     <i class="lni lni-alarm-clock"></i> <span>22h 30min</span>
+                    </div>
+                </div>
+               
+                <div class="course-by">
+                    <div class="imguser">
+                        <a href="{% static './images/me.jpg' %}">
+                            <img src="{% static './images/me.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    
+                    <p><span>By </span>Salem sif eddine</p>
+                </div>
+
+            </div>
+            <div class="enroll-price">
+                <div class="price">
+                 <strong>Free</strong>
+                </div>
+                <div class="enroll">
+                 <p>Get Enrolled <i class="lni lni-cart"></i></p>
+                 </div>
+            </div>
+        </div>
+        <div class="course">
+            <div class="imgcourse">
+                <img src="{% static './images/course.jpg' %}" alt="">
+            </div>
+            
+            <div class="infocourse">
+                <div class="course-level">
+                    all levels
+                </div>
+                <div class="save-course">
+                 <i class="lni lni-bookmark"></i>
+                </div>
+
+                <div class="course-rate">
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                 <i class="lni lni-star-filled"></i>
+                </div>
+
+                <div class="title-course">
+                    <p>
+                        Django Framework - build websites with django, python.
+                    </p>
+                </div>
+
+                <div class="timing-views">
+                    <div class="views">
+                     <i class="lni lni-users"></i> <span>2</span>
+                    </div>
+                    <div class="timing">
+                     <i class="lni lni-alarm-clock"></i> <span>22h 30min</span>
+                    </div>
+                </div>
+               
+                <div class="course-by">
+                    <div class="imguser">
+                        <a href="{% static './images/me.jpg' %}">
+                            <img src="{% static './images/me.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    
+                    <p><span>By </span>Salem sif eddine</p>
+                </div>
+
+            </div>
+            <div class="enroll-price">
+                <div class="price">
+                 <strong>Free</strong>
+                </div>
+                <div class="enroll">
+                 <p>Get Enrolled <i class="lni lni-cart"></i></p>
+                 </div>
+            </div>
+        </div>
+
+       </div>
+    </div>
+    
 </section>
 {% endblock content %}

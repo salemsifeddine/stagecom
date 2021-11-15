@@ -14,7 +14,7 @@
   padding: 34px;
   border-radius: 6px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .wrapper h2{
   position: relative;
@@ -160,6 +160,7 @@ form .text h3 a:hover{
     background: none;
     border: 1.5px solid #ddd;
     transition: border-color 0.3s ease;
+    width: 360px;
   }
 
   .custom-field.one input + .placeholder {
@@ -285,7 +286,7 @@ form .text h3 a:hover{
       calc(var(--draw-duration) * 2);
   }
 
-input{
+/* input{
     height: 100%;
     width: 100%;
     outline: none;
@@ -302,5 +303,5 @@ input{
   input[type="checkbox"]{
     width: 20px;
     height: 15px;
-  }
+  } */
 

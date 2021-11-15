@@ -1,0 +1,30 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static './css/login.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="containerlogin ">
+    <div class="wrapper">
+      <div class="title"><span>Login Form</span></div>
+      <form action="#">
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Email or Phone" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+        <div class="pass"><a href="#">Forgot password?</a></div>
+        
+          <a href="/" class="button button-small anchor">Login</a>
+        
+        <div class="signup-link">Not a member? <a href="{% url 'register' %}">Signup now</a></div>
+      </form>
+    </div>
+</div>
+
+{% endblock content %}
