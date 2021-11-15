@@ -1,0 +1,47 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="index-mosaic content mosaic">
+    <div class=" shape-before shape-after"> </div>
+    <div class="container container-content"> 
+        <div class="row">
+            <div class="col-lg-11 col-xl-10"> 
+                <h2>A single plugin.<br>Everything forms.
+                    <span class="lineyellow">Totally stand-alone.</span>
+                </h2> 
+            </div> 
+        </div> 
+        <div class="row"> 
+            <div class="col-md-11 col-lg-10"> 
+                <p>That’s right! The plugin runs a stand-alone, 
+                    <strong>fullblown form builder and all storage</strong> 
+                    right inside your WordPress without any dependencies on outside infrastructure. No strings attached!
+                </p> 
+                <a href="product/" class="hyperlink">
+                <span>Take the product tour</span>
+                <i class="fas fa-arrow-right"></i>
+                </a> 
+            </div> 
+        </div> 
+    </div> 
+    <div class="container container-mosaic"> 
+        <div class="row mosaic-row-top shape-before"> 
+            {% for course in courses %}
+            <a href="product/#hosting" class="mosaic-block mosaic-block-vertical palette-hosting"> 
+                <div> 
+                    <h3>{{course.title}}</h3> 
+                    <p>{{course.subject.title}}. 
+                     
+                        by <strong> {{course.owner}}</strong></p> </div> 
+                        <img src="{% static './images/hosting.svg' %}" 
+                        alt="Illustration representing data storage freedom"> 
+            </a> 
+            
+            {% endfor %}
+        </div> 
+    </div> 
+</section>
+{% endblock content %}

@@ -1,0 +1,98 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StageCom | home</title>
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}">
+    
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link rel="icon" href="{% static './images/ha logo ta3kom/icon blue.png' %}"  type = "image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link rel="stylesheet" href="{% static './css/base.css' %}">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            
+            <div class="header-horizontal">
+                <div>
+                    <a href="/">
+                        <img src="{% static './images/ha logo ta3kom/icon blue.png' %}" class="logo" alt="">
+                    </a>
+                    <div class="logo-name">
+                        StageCom
+                    </div>
+                </div>
+                <div>
+                    <div style="display: inline-block !important;">
+                        <a href="/" class="button button-small anchor">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class=" shape-before shape-after"> 
+        
+    </div>
+
+    <!-- <div style="height:110vh;background-color: #f2f2f2;padding-top: 10vh;position: relative;">
+        <div class=" shape-before shape-after"> 
+            <h1>Ouch!</h1> <p>Something went wrong. 
+                <strong>The requested page does not exist.</strong> 
+                There’s nothing to see here.</p> <a href="/" class="hyperlink">
+            <span>Back to home</span><i class="fas fa-arrow-right"></i></a> 
+        </div>
+    </div> -->
+   {% block content %}
+
+   {% endblock content %}
+    <footer>
+        <div class="container">
+            <div class="row footer-communication">
+                <div class="col-md-10 col-lg-7 footer-subscribe footer-subscribe-padding">
+                <form action="#" 
+                    method="post" data-drip-embedded-form="438765997" id="drip-ef-438765997"
+                    class="form-inline"> 
+                    <label class="sr-only" for="drip-email">Email Address</label>
+                    <input type="email" id="drip-email" name="fields[email]"
+                    value="" class="form-input form-input-placeholder"
+                    placeholder="Type your email for updates">
+                    <input type="hidden" name="tags[]" id="tags_"
+                    value="Source - Website - Subscribe form" tabindex="-1">
+                    <button type="submit" class="button button-wide">Subscribe</button>
+                </form>
+                </div>
+            </div>
+            <div class="row footer-communication" style="padding-top: 40px;">
+                <div class="col footer-socials">
+                    <a href="#" target="_blank" 
+                        class="social twitter"><i class="lni lni-twitter-original fa-fw"></i>
+                    </a> 
+                    <a href="#" target="_blank" 
+                        class="social facebook"><i class="lni lni-facebook-filled fa-fw"></i>
+                    </a> 
+                    <a href="#" target="_blank" 
+                        class="social linkedin"><i class="lni lni-linkedin-original fa-fw"></i>
+                    </a> 
+                    <a href="#" 
+                        target="_blank" class="social youtube"><i class="lni lni-youtube fa-fw"></i>
+                    </a> 
+                    <a href="#" target="_blank" 
+                        class="social medium"><i class="lni lni-instagram-original fa-fw"></i>
+                    </a> 
+                </div> 
+            </div>
+            <div class="row footer-notes"> 
+            <div class="col-12"><hr></div>
+             <div class="col-sm-6">
+                <span class="amsterdam">From StageCom with <i class="lni lni-heart-filled"></i></span>
+             </div> 
+            <div class="col-sm-6 footer-copyright">Copyright © 2021-2021 StageCom</div> </div>
+        </div>
+    </footer>
+    <script src="{% static './js/jquery.js' %}"></script> 
+    <script src="{% static './js/base.js' %}"></script>
+</body>
+</html>
