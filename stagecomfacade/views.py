@@ -23,3 +23,8 @@ def courses(request):
 
     context={"courses":Course.objects.all()}
     return render(request, "pages/courses.html",context)
+
+def mobile(request):
+
+    context={ }
+    return render(request, "pages/mobile.html",context)

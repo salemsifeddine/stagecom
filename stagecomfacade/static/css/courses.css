@@ -5,7 +5,7 @@
     position: relative;
    
 }
-.row{
+.rowcrss{
     margin-top: 10vh;
     display:inline-block
 }
@@ -31,7 +31,10 @@
 .textwrapper h3{
     font-size: 60px;
     margin-bottom: 15px;
+    position: relative;
+  
 }
+
 .textwrapper span{
     
     color: #eee;

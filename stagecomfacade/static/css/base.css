@@ -671,7 +671,7 @@ section{
 
 
 .nav-links{
-    display: flex;
+    /* display: flex; */
     align-items: center;
     /* background: #fff;
     padding: 20px 15px;
@@ -777,4 +777,11 @@ section{
    100%{
      opacity: 0;
    }
+  }
+
+
+  @media screen and (max-width: 800px) {
+    .nav-links li a{
+        padding:20px
+      }
   }

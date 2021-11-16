@@ -11,6 +11,7 @@
     <link rel="icon" href="{% static './images/ha logo ta3kom/icon blue.png' %}"  type = "image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="{% static './css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/mobile.css' %}">
     {% block css %}
 
     {% endblock css %}
@@ -37,7 +38,7 @@
           </div> -->
     </div>
     <header id="header">
-        <div class="container">
+        <!-- <div class="container">
             
             <div class="header-horizontal">
                 <div>
@@ -62,6 +63,34 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="containernav">
+            <div class="header-horizontal">
+            <div>
+                <a href="/">
+                    <img src="{% static './images/ha logo ta3kom/icon blue.png' %}" class="logo" alt="">
+                </a>
+                <div class="logo-name">
+                    StageCom
+                </div>
+            </div>
+            
+            <nav class="site-nav">
+                <ul class="nav-links">
+                    <li class="upward"><a href=""><i class="fa fa-home site-nav--icon"></i>Home</a></li>
+                    <li class="upward"><a href=""><i class="fa fa-info site-nav--icon"></i>About</a></li>
+                    <li class="upward"><a href=""><i class="fas fa-pencil-alt site-nav--icon"></i>Blog</a></li>
+                    <li class="upward"><a href=""><i class="fa fa-envelope site-nav--icon"></i>Contact</a></li>
+                </ul>
+                
+            </nav>
+            
+            
+            
+          </div>
+          <div class="menu-toggle">
+            <div class="hamburger"></div>
+          </div>
         </div>
     </header>
     <div class=" shape-before shape-after"> 
@@ -125,6 +154,8 @@
     </footer>
     <script src="{% static './js/jquery.js' %}"></script> 
     <script src="{% static './js/base.js' %}"></script>
+
+    <script src="{% static './js/mobile.js' %}"></script>
     {% block js %}
 
     {% endblock js %}
@@ -133,7 +164,7 @@
         var loader =document.getElementById("preloader");
 
         window.addEventListener("load",function(){
-            if(window.location.pathname=='/'){
+            if(window.location.pathname=='/' || window.location.pathname=='/courses/' || window.location.pathname=='/internships/'){
                 setTimeout(() => {
                     loader.style.display="none"
                 }, 1500);
