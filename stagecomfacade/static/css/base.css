@@ -686,7 +686,7 @@ section{
   .nav-links li a{
     position: relative;
     color: #333;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     padding: 6px 0;
     text-decoration: none;
@@ -785,4 +785,19 @@ section{
     .nav-links li a{
         padding:20px
       }
+      
+      .nav-links .authbtn a{
+          width:100px;
+          margin: 10px 0;
+          padding: 10px;
+      }
+      #preloader{
+       
+        background-size:70%;
+        
+    }
+  }
+
+  ul{
+      margin:0
   }
