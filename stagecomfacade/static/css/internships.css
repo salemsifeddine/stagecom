@@ -1,0 +1,149 @@
+.containerInternship{
+    width:100%;
+    height: calc(100vh - 82px);
+    background: linear-gradient(to left,#e66464ad, #9198e5a4);
+    position: relative;
+   
+}
+.rowcrss{
+    margin-top: 10vh;
+    display:inline-block
+}
+
+.imgwrapper{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+.imgwrapper img{
+    width:100%;
+    height: 100%;
+  
+}
+
+.textwrapper{
+    width:100%;
+    text-align:center;
+    position:absolute;
+    top:10vh
+}
+.textwrapper h3{
+    font-size: 60px;
+    margin-bottom: 10px;
+    position: relative;
+  
+}
+
+.textwrapper span{
+    
+    color: #eee;
+    text-align: center;
+}
+
+.marginbtm10{
+  
+    margin-top: 10px;
+}
+
+.wrapper h2::before{
+    width: 50px;
+}
+.wrapper form {
+    margin-top: 0;
+}
+section{
+    position: relative;
+}
+.wrapper {
+    position: absolute;
+    bottom: -35px;
+    left: 20px;
+    max-width: 390px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.877);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    margin:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.text-courses-above {
+    width: 100%;
+    margin-top: 40px;
+
+    border-bottom: 2px solid #ddd;
+}
+
+.text-courses-bottom {
+    text-align: center;
+    padding: 20px;
+}
+
+.course{
+  
+    width:430px;
+    height:450px;
+    position:relative;
+    float: left;
+    margin: 0 20px;
+    margin-bottom: 20px;
+  
+}
+
+.imgcourse{
+    
+    width:100%;
+    height:230px;
+    background:#555
+ 
+}
+.imgcourse img{
+    
+    width:100%;
+    height:100%;
+    object-fit:cover
+ 
+}
+.infocourse{
+  
+    width:100%;
+    height:180px;
+    padding:10px
+}
+
+
+.button-apply{
+    padding: 3px 3px;
+    background-color: #8f68fb;
+    border: 2px solid #8f68fb;
+    border-radius: 3px;
+    font-size: 16px;
+    position:absolute;
+    bottom:5px;
+    left:160px
+}
+
+.enroll-price{
+    border-top:none;
+}

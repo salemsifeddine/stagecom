@@ -1,11 +1,5 @@
-/* colors -> https://coolors.co/e54b4b-ebebd3-464655-e4b363-e8e9eb */
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
-body {
-  background: #F0F8EA;
-  font-family: 'Quicksand', sans-serif;
-}
 
 .containernav {
   width: 95%;
@@ -42,7 +36,7 @@ header::after {
   position: absolute;
   top: 100%;
   right: 0%;
-  background: #464655;
+  background: #f2f2f2;
   clip-path: circle(0px at top right);
   transition: clip-path ease-in-out 700ms;
 /*   display: none; */

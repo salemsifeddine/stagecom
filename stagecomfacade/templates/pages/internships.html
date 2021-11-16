@@ -1,0 +1,170 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static './css/courses.css' %}">
+    <link rel="stylesheet" href="{% static './css/register.css' %}">
+    <link rel="stylesheet" href="{% static './css/internships.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+<section class="containerInternship">
+  <div class="imgwrapper">
+      <img src="{%  static './images/hosting.svg' %}" alt="">
+  </div>
+  <div class="textwrapper">
+      <h3>
+        You Deserve a Career You Love
+      </h3>
+      <span>Award-Winning International Internships and Career Readiness Programs</span>
+      <br>
+      
+  </div>
+  
+
+
+  
+  <div class="wrapper">
+    <!-- <h2>Find Your Internship</h2> -->
+    <form action="#">
+      <div class="input-box">
+        <label class="custom-field one">
+          <input type="text" placeholder=" " >
+          <span class="placeholder">Search by major</span>
+        </label>
+      </div>
+      <div class="input-box">
+        <label class="custom-field one">
+          <input type="text" placeholder=" ">
+          <span class="placeholder">Search by place</span>
+        </label>
+        <!-- <input type="text" placeholder="Enter your email" required> -->
+      </div>
+      <div class="input-box">
+        <label class="custom-field one">
+          <input type="text" placeholder=" " >
+          <span class="placeholder">Search by country</span>
+        </label>
+        <!-- <input type="password" placeholder="Create password" required> -->
+      </div>
+      
+   
+      <!-- <div class="input-box button"> -->
+        <!-- <input type="Submit" value="Register Now"> -->
+        <a href="/" class="button button-small anchor marginbtm10" style="margin-bottom: 15px">Search</a>
+      <!-- </div> -->
+      
+    </form>
+  </div>
+</section>
+
+<section class="courses">
+  <div class="container">
+     <div class="text-courses-above">
+      <p>
+         <strong>Build your career right now, right from your home</strong> 
+         If you are accepted into our virtual internship program, you will work one-on-one with a
+          Program Advisor and our Placement Team to find the right internship 
+         match in your chosen career field, and based on your experiences and goals.
+      </p>
+      
+     </div>
+
+     <div class="text-courses-bottom">
+      <p>
+        <h2>Featured Virtual Internship Placements</h2> 
+        Can't find what you're looking for? These are just a few examples of the thousands of
+         virtual internship opportunities we offer. Apply today 
+        to speak with an Admissions Counselor and find out what's available in your field.
+     </p>
+     </div>
+     
+     <div class="rowcrss">
+      <div class="course">
+          <div class="imgcourse">
+              <img src="{% static './images/course.jpg' %}" alt="">
+          </div>
+          
+          <div class="infocourse">
+              <div class="course-level">
+                  all levels
+              </div>
+              <div class="save-course">
+               <i class="lni lni-bookmark"></i>
+              </div>
+
+              <div class="title-course">
+                  <h4>
+                      Django Framework - build websites with django, python.
+                  </h4>
+              </div>
+
+              <div class="desc">
+                <p>
+                  This internship is with a company that provides cloud-based retail analytics solutions
+                   to develop industry-leading solutions that help transform business worldwide. Intern
+                    tasks include: Assisting with business development, partnership building with foreign
+                     partners, contributing to press activities,
+                   and interacting with internal departments to carry out client requirements.
+                </p>
+              </div>
+             
+             
+
+          </div>
+          <div class="enroll-price">
+              <div class="apply-btn">
+                <a href="#" class=" button button-apply">Apply Now</a>
+              </div>
+          </div>
+      </div>
+      <div class="course">
+        <div class="imgcourse">
+            <img src="{% static './images/course.jpg' %}" alt="">
+        </div>
+        
+        <div class="infocourse">
+            <div class="course-level">
+                all levels
+            </div>
+            <div class="save-course">
+             <i class="lni lni-bookmark"></i>
+            </div>
+
+            <div class="title-course">
+                <h4>
+                    Django Framework - build websites with django, python.
+                </h4>
+            </div>
+
+            <div class="desc">
+              <p>
+                This internship is with a company that provides cloud-based retail analytics solutions
+                 to develop industry-leading solutions that help transform business worldwide. Intern
+                  tasks include: Assisting with business development, partnership building with foreign
+                   partners, contributing to press activities,
+                 and interacting with internal departments to carry out client requirements.
+              </p>
+            </div>
+           
+           
+
+        </div>
+        <div class="enroll-price">
+            <div class="apply-btn">
+              <a href="#" class=" button button-apply">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+     </div>
+  </div>
+  
+</section>
+
+
+
+{% endblock content %}

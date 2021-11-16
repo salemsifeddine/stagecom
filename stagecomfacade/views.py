@@ -24,7 +24,7 @@ def courses(request):
     context={"courses":Course.objects.all()}
     return render(request, "pages/courses.html",context)
 
-def mobile(request):
+def internships(request):
 
     context={ }
-    return render(request, "pages/mobile.html",context)
+    return render(request, "pages/internships.html",context)
