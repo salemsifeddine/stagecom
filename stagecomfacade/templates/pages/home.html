@@ -7,13 +7,13 @@
     <div class="row row-hero"> 
         <div class="col-md-9 col-lg-8 col-xl-7 col-hero">
          <h1>Find Your internishps, Courses here <br> With us</h1> 
-         <p>Build powerful, deeply customizable form experiences and store collected data 
+         <p>Build powerful Courses, Internships 
              <strong>all right inside Our Website.</strong>
             </p> 
             <div> 
                 <a href="/" class="button button-large">Get Started Now</a> 
             </div> 
-            <small>Also create surveys, quizzes, registration forms, exams and so much more with Tripetto.</small> 
+            <small>Also create your course, quizzes, Internship and so much more with StageCom.</small> 
         </div> </div> </div> 
 </section>
 
@@ -95,27 +95,28 @@
     <div class="container container-content"> 
         <div class="row">
             <div class="col-lg-11 col-xl-10"> 
-                <h2>A single plugin.<br>Everything forms.
-                    <span class="lineyellow">Totally stand-alone.</span>
+                <h2>Helps Students to Find<br>Internships, Courses.
+                    <span class="lineyellow">Totally inside our website.</span>
                 </h2> 
             </div> 
         </div> 
         <div class="row"> 
             <div class="col-md-11 col-lg-10"> 
-                <p>That’s right! The plugin runs a stand-alone, 
-                    <strong>fullblown form builder and all storage</strong> 
-                    right inside your WordPress without any dependencies on outside infrastructure. No strings attached!
+                <p>That’s right! everything you look for is here with us 
+                    <strong>Also you publish your course or internship to the public</strong> 
+                    without any dependencies on outside infrastructure!
                 </p> 
                 <a href="{% url 'courses' %}" class="hyperlink">
-                <span>Take the product tour</span>
+                <span>See Courses</span>
                 <i class="fas fa-arrow-right"></i>
                 </a> 
+               
             </div> 
         </div> 
     </div> 
     <div class="container container-mosaic"> 
         <div class="row mosaic-row-top shape-before"> 
-            
+            <small style="font-size:20px">Most watched courses</small>
             <a href="product/#hosting" class="mosaic-block mosaic-block-vertical palette-hosting"> 
                 <div> 
                     <h3>Data Storage Autonomy</h3> 
@@ -138,15 +139,25 @@
 
 
 <section class="cta"> 
+
+   
+
     <div class=" shape-before shape-after"> </div>
-    <div class="container"> <div class="row cta-row"> 
+    <div class="container" style="padding: 0px;"> <div class="row cta-row"> 
         <div class="col-md-9 col-lg-11 col-xl-10"> 
-            <small>Give life to forms and surveys</small>
-             <h2><span>Tripetto for WordPress.</span>Have your forms done right, self-hosted.</h2>
-              <div> <a href="pricing/" class="button button-wide">Get The Plugin</a>
+            <small>Give life to your career</small>
+             <h2><span>StageCom made for Students.</span>Have your Professional Internship, with International Companies.</h2>
+              <div> <a href="pricing/" class="button button-wide">Create Internship</a>
              </div> 
             </div> 
         </div> 
+    </div> 
+
+    <div class="container container-content" style="padding: 0;">          
+        <a href="{% url 'internships' %}" class="hyperlink">
+        <span>See Internships</span>
+        <i class="fas fa-arrow-right"></i>
+        </a> 
     </div> 
 </section>
 {% endblock content %}

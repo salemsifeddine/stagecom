@@ -42,6 +42,8 @@ header::after {
 /*   display: none; */
   width: 100%;
   height: 100vh;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .site-nav--open {
@@ -56,7 +58,8 @@ header::after {
 }
 
 .site-nav li {
-  border-bottom: 1px solid #575766;
+  border-bottom: 1.5px solid #ccc;
+  letter-spacing: 1.5px;
 }
 
 .site-nav li:last-child {
@@ -147,13 +150,13 @@ header::after {
   
   .site-nav a {
     padding: 0;
-    margin-left: 3em;
+    /* margin-left: 3em; */
   }
   
-  .site-nav a:hover,
+  /* .site-nav a:hover,
   .site-nav a:focus {
     background: transparent;
-  }
+  } */
   
   .site-nav--icon {
     display: none;
