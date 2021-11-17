@@ -354,8 +354,8 @@ section.index-hero .row-hero .col-hero small {
     font-weight: 500;
     letter-spacing: -0.3px;
     color: #3e4462;
-    padding-top: 60px;
-    padding-bottom: 24px;
+    padding-top: 30px;
+    padding-bottom: 20px;
     width: 55%;
 }
 
@@ -783,7 +783,9 @@ section{
    }
   }
 
-
+ .padding0{
+     padding:0
+ }
   @media screen and (max-width: 800px) {
     .nav-links .upward a{
         padding:15px
@@ -811,6 +813,14 @@ section{
 
       section.index-hero .row-hero .col-hero h1{
           font-size:60px
+      }
+      .row{
+          margin: 0px;
+         
+      }
+
+      .paddingleft10{
+          padding-left:25px
       }
   }
 
