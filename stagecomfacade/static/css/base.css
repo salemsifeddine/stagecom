@@ -787,6 +787,23 @@ section{
      padding:0
  }
   @media screen and (max-width: 800px) {
+    footer .footer-communication .footer-subscribe form{
+        display:inline
+    }
+    footer .footer-communication .footer-subscribe form button{
+        margin: 10px;
+    }
+    #preloader h3{
+        left: 26px;
+      }
+
+      .lineyellow::before{
+          width: 230px;
+      }
+
+      .content h2,section.cta .cta-row h2{
+          font-size: 55px
+      }
     .nav-links .upward a{
         padding:15px
       }
