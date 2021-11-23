@@ -83,10 +83,14 @@
                     <li class="upward"><a href="{% url 'courses' %}"><i class="fas fa-pencil-alt site-nav--icon"></i>Courses</a></li>
                     <li class="upward"><a href=""><i class="fa fa-envelope site-nav--icon"></i>Blog</a></li>
                     <li class="upward"><a href=""><i class="fa fa-envelope site-nav--icon"></i>Contact</a></li>
-                   
+                    {% if request.user.is_authenticated %}
+                    <li class="authbtn" style=" min-width:80px"><a style="padding: 5px;width:100%;margin-left: 0;color: #fff;" href="{% url 'logout' %}" class="button">Logout</a></li>
+                    {% else %}
                     <li class="authbtn" style=" min-width:80px"><a style="padding: 5px;width:100%;margin-left: 0;color: #fff;" href="{% url 'login' %}" class="button">Login</a></li>
                     <li class="authbtn" style="min-width:80px"><a style="padding: 5px;width:100%;margin-left: 0;color: #fff;" href="{% url 'register' %}" class="button">Register</a></li>
-                </ul>
+               
+                    {% endif %}
+                    </ul>
                 
             </nav>
             
@@ -118,10 +122,10 @@
             <div class="row footer-communication">
                 <div class="col-md-10 col-lg-7 footer-subscribe footer-subscribe-padding">
                 <form action="#" 
-                    method="post" data-drip-embedded-form="438765997" id="drip-ef-438765997"
+                    method="get" data-drip-embedded-form="438765997" id="drip-ef-438765997"
                     class="form-inline"> 
                     <label class="sr-only" for="drip-email">Email Address</label>
-                    <input type="email" id="drip-email" name="fields[email]"
+                    <input type="email" id="drip-email" name="newsletter"
                     value="" class="form-input form-input-placeholder"
                     placeholder="Type your email for updates">
                     <input type="hidden" name="tags[]" id="tags_"

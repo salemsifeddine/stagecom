@@ -104,3 +104,8 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
+
+
+class Newsletter(models.Model):
+
+    email=models.EmailField(max_length=150)
