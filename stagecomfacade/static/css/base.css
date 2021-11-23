@@ -787,11 +787,21 @@ section{
      padding:0
  }
   @media screen and (max-width: 800px) {
+    .custom-field.one input{
+        width:300px
+    }
+    .wrapper {
+        min-width: 360px;
+    }
     footer .footer-communication .footer-subscribe form{
         display:inline
     }
     footer .footer-communication .footer-subscribe form button{
         margin: 10px;
+    }
+    
+    .shape-after::after{
+        right: 14%;
     }
     #preloader h3{
         left: 26px;

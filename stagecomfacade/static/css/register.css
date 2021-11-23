@@ -154,7 +154,8 @@ form .text h3 a:hover{
     background: none;
     border: 1.5px solid #ddd;
     transition: border-color 0.3s ease;
-    width: 360px;
+    min-width: 300px;
+  max-width: 360px;
   }
 
   .custom-field.one input + .placeholder {
