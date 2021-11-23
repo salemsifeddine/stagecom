@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'stagecom.urls'
@@ -119,6 +120,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+import os
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT= os.path.join(BASE_DIR,"saticfiles")
+
+MEDIA_URL='/images/'
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,"static",)
+]
+
+MEDIA_ROOT= os.path.join(BASE_DIR,"static/images")
+
+LOGIN_REDIRECT_URL = "home"
+
+LOGIN_URL = "login"
+
+LOGIN_REDIRECT_URL= "home"
+LOGIN_URL ="login"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
