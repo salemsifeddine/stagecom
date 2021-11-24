@@ -155,7 +155,7 @@ section{
 @media screen and (max-width: 800px){
     .wrapper{
         max-width: 360px;
-        bottom: 176px;
+        /* bottom: 176px; */
         left: 0;
     }
     .imgwrapper {
