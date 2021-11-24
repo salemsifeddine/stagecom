@@ -214,8 +214,9 @@
 
         font-size: 45px;
     }
-    .btncourses{
+    .btncourses {
         bottom: 25vh;
+        margin-left: calc(50% - 70px);
     }
     .course{
         margin: 0;
