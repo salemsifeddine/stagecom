@@ -787,6 +787,16 @@ section{
      padding:0
  }
   @media screen and (max-width: 800px) {
+    .amsterdam{
+        font-size:18px
+    }
+    form .form-input,.button{
+        font-size: 18px
+    }
+    section.index-hero .row-hero {
+        background-position: right 255px;
+        background-size: 172px;
+    }
     .custom-field.one input{
         width:300px
     }
@@ -804,16 +814,27 @@ section{
         right: 14%;
     }
     #preloader h3{
-        left: 26px;
+        text-align: center;
+        bottom: 180px;
       }
 
       .lineyellow::before{
-          width: 230px;
+          width: 175px;
       }
 
       .content h2,section.cta .cta-row h2{
           font-size: 55px
       }
+      .content h2, section.cta .cta-row h2 {
+        font-size: 45px;
+    }
+    section.index-mosaic .container-content p,section.cta .cta-row small {
+      
+        font-size: 25px;
+    }
+    footer .footer-notes .footer-copyright {
+        text-align: center;
+    }
     .nav-links .upward a{
         padding:15px
       }
@@ -839,7 +860,7 @@ section{
       }
 
       section.index-hero .row-hero .col-hero h1{
-          font-size:60px
+          font-size:50px
       }
       .row{
           margin: 0px;

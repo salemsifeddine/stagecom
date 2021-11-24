@@ -192,3 +192,35 @@
 .course-by p span{
     color: #c4baba;
 }
+
+
+@media screen and (max-width: 800px){
+    .imgwrapper {
+        width: 100%;
+        height: 20%;
+        overflow: hidden;
+        margin-top: 10%;
+    }
+    .text-courses-above {
+        font-size: 18px;
+        width: 100%;
+    }
+    .textwrapper span{
+        font-size:16px
+    }
+
+    
+    .textwrapper h3 {
+
+        font-size: 45px;
+    }
+    .btncourses{
+        bottom: 35vh;
+    }
+    .course{
+        margin: 0;
+        width: 370px;
+        margin-bottom: 30px;
+    }
+
+}
