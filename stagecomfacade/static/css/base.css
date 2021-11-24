@@ -746,9 +746,10 @@ section{
     font-size:60px;
     text-align: center;
     color: #8f68fb;
-    position: fixed;
+    /* position: fixed;
     bottom: 100px;
-    left: 60px;
+    left: 60px; */
+    margin-top: 35%;
     user-select: none;
 
 }
@@ -813,10 +814,7 @@ section{
     .shape-after::after{
         right: 14%;
     }
-    #preloader h3{
-        text-align: center;
-        bottom: 180px;
-      }
+    
 
       .lineyellow::before{
           width: 175px;
@@ -849,6 +847,12 @@ section{
         background-size:70%;
         
     }
+    #preloader h3{
+       
+        margin-top: 75%;
+        
+    }
+    
 
     .nav-links .upward.upward a:hover:before{
         bottom: 0px;

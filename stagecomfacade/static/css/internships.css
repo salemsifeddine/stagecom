@@ -153,6 +153,7 @@ section{
     .wrapper{
         max-width: 360px;
         bottom: 176px;
+        left: 0;
     }
     .imgwrapper {
         width: 100%;
