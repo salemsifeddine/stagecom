@@ -801,9 +801,7 @@ section{
     .custom-field.one input{
         width:300px
     }
-    .wrapper {
-        min-width: 360px;
-    }
+    
     footer .footer-communication .footer-subscribe form{
         display:inline
     }

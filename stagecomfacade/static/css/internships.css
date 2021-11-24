@@ -110,9 +110,6 @@ section{
     margin-bottom: 20px;
   
 }
-.desc p{
-    padding: 10px;
-}
 
 .imgcourse{
     
@@ -154,7 +151,7 @@ section{
 
 @media screen and (max-width: 800px){
     .wrapper{
-        max-width: 360px;
+        width: 330px;
         /* bottom: 176px; */
         left: 0;
     }
@@ -188,7 +185,7 @@ section{
             .button-apply {
                 padding: 6px 18px;
                
-                left: 140px;
+                left: 105px;
             }
 
 }
