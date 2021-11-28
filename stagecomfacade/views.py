@@ -12,7 +12,8 @@ from .forms import *
 # Create your views here.
 
 def  home(request):
-    return render(request, "pages/home.html",{})
+    context={"title":"Home"}
+    return render(request, "pages/home.html",context)
 
 def register(request):
     
@@ -40,7 +41,7 @@ def register(request):
 
 
 
-    context={"courses":Course.objects.all(),"form":form}
+    context={"title":"Register","courses":Course.objects.all(),"form":form}
     return render(request, "pages/register.html",context)
 
 
@@ -62,7 +63,7 @@ def login(request):
                 auth_login(request, user)
                 return redirect("home")
 
-    context={"form":form}
+    context={"title":"Login","form":form}
     return render(request, "pages/login.html",context)
 
 def logout(response):
@@ -71,10 +72,10 @@ def logout(response):
 
 def courses(request):
 
-    context={"courses":Course.objects.all()}
+    context={"title":"Courses","courses":Course.objects.all()}
     return render(request, "pages/courses.html",context)
 
 def internships(request):
 
-    context={ }
+    context={"title":"Internships" }
     return render(request, "pages/internships.html",context)

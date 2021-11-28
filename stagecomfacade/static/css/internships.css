@@ -102,7 +102,7 @@ section{
 
 .course{
   
-    width:430px;
+    width:340px;
     height:500px;
     position:relative;
     float: left;
@@ -132,6 +132,11 @@ section{
     padding:10px
 }
 
+.apply-btn{
+    position:absolute;
+    bottom:5px;
+   
+}
 
 .button-apply{
     padding: 3px 3px;
@@ -139,9 +144,7 @@ section{
     border: 2px solid #8f68fb;
     border-radius: 3px;
     font-size: 16px;
-    position:absolute;
-    bottom:5px;
-    left:160px
+    
 }
 
 .enroll-price{
@@ -188,4 +191,13 @@ section{
                 left: 105px;
             }
 
+}
+
+
+.lni-bookmark{
+    transition: color .1s ease;
+    cursor: pointer;
+}
+.lni-bookmark:hover{
+    color: rgba(54, 116, 54, 0.432);
 }
