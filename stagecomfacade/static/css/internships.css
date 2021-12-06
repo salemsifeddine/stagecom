@@ -153,6 +153,9 @@ section{
 
 
 @media screen and (max-width: 800px){
+    .details-footer{
+        height: 140px;
+    }
     .wrapper{
         width: 330px;
         /* bottom: 176px; */
@@ -200,4 +203,200 @@ section{
 }
 .lni-bookmark:hover{
     color: rgba(54, 116, 54, 0.432);
+}
+
+
+.details-footer {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    height: 100px;
+    z-index: 999;
+    border: 1px solid #e1e1e1;
+    -moz-box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    -ms-box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family:"Poppins",sans-serif
+}
+.btn {
+    font-weight: 400;
+    padding: 9px 25px;
+    border-radius: 6px;
+    min-width: 150px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.btn__orange {
+
+    border-color: #8f68fb;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 9px 25px;
+    margin-top: 10px;
+}
+
+.btn__orange:hover{
+    background: rgba(115, 78, 218, 0.911);
+    color: #fff
+}
+
+.btn__bold {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.details-footer__btn-apply {
+    
+    position: relative;
+    padding: 14px 32px 14px 60px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.btn__orange, .btn__blue {
+    background: #8f68fb;
+    border: 1px solid #8f68fb;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 16px;
+    text-transform: none;
+}
+
+.details-footer .details-footer__btn-apply {
+    border-radius: 30px;
+    min-width: 200px;
+}
+
+.details-footer__btn-apply::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 26px;
+    height: 25px;
+    background: url("/static/images/icon-company-light.svg") no-repeat 0 0;
+        background-size: auto;
+    background-size: 26px 25px;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -14px;
+    margin-right: 13px;
+    opacity: 0.3;
+}
+
+.social-share {
+
+    display: inline-block;
+    padding-top: 11px;
+    vertical-align: top;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.social-share__title {
+    width: 106px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: 17px;
+    margin: 0 26px 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.social-share__icons {
+    min-width: 200px;
+    display: inline-block;
+}
+
+#st-1.st-animated {
+    -moz-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+    -ms-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+    -o-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+    -webkit-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+    transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+}
+
+#st-1 .st-btn[data-network="facebook"] {
+    background-color: #4267B2;
+}
+
+#st-1 .st-btn[data-network="twitter"] {
+    background-color: #55acee;
+}
+#st-1 .st-btn[data-network="linkedin"] {
+    background-color: #0077b5;
+}
+#st-1 .st-btn[data-network="pinterest"] {
+    background-color: #CB2027;
+}
+
+#st-1 .st-btn {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: opacity 0.2s ease-in, top 0.2s ease-in;
+    -ms-transition: opacity 0.2s ease-in, top 0.2s ease-in;
+    -o-transition: opacity 0.2s ease-in, top 0.2s ease-in;
+    -webkit-transition: opacity 0.2s ease-in, top 0.2s ease-in;
+    transition: opacity 0.2s ease-in, top 0.2s ease-in;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 8px;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    vertical-align: top;
+    white-space: nowrap;
+}
+#st-1 .st-btn:last-child {
+    margin-right: 0;
+}
+
+#st-1 .st-btn > img {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: relative;
+    top: 8px;
+    vertical-align: top;
 }

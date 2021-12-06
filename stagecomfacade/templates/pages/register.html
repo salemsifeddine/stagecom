@@ -41,7 +41,17 @@
         <span class="placeholder">Confirm password</span>
       </label>
     </div>
-    <div class="policy">
+    <div class="policy" style="width: 200px; float:left">
+      <!-- <input id="studentReg" type="checkbox"> -->
+      {{form.studentCheck}}
+      <h3>Student</h3>
+    </div>
+    <div class="policy "  style="width: 50px; float:left">
+      <!-- <input id="companyReg" type="checkbox"> -->
+      {{form.companyCheck}}
+      <h3>Company</h3>
+    </div>
+    <div class="policy"  style="width: 100%">
       <input type="checkbox">
       <h3>I accept all terms & condition</h3>
     </div>
@@ -64,4 +74,5 @@
 
 {% block js %}
   <script src="{% static './js/inputs.js' %}"></script>
+
 {% endblock js %}

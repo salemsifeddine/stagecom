@@ -37,10 +37,12 @@ class RegisterForm(UserCreationForm):
     password2 = forms.CharField(
        widget=forms.PasswordInput(attrs={'placeholder': ' ',"name":"password2"})
     )
+    studentCheck= forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"studentReg"}))
+    companyCheck=  forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"companyReg"}))
   
     class Meta:
         model=User
-        fields=["username","email","password1","password2"]
+        fields=["username","email","password1","password2","studentCheck","companyCheck"]
 
 class Newsletter(forms.Form):
 

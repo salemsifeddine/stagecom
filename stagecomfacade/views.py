@@ -79,3 +79,8 @@ def internships(request):
 
     context={"title":"Internships" }
     return render(request, "pages/internships.html",context)
+
+def internshipDet(request):
+
+    context={"title":"Internship" }
+    return render(request, "pages/internshipDet.html",context)
