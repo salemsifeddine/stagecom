@@ -8,6 +8,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import  authenticate
 from django.contrib.auth import login as auth_login
 from .forms import *
+from django.views import generic
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -76,11 +77,19 @@ def courses(request):
     return render(request, "pages/courses.html",context)
 
 def internships(request):
+    
+    internships=Internships.objects.all()
 
-    context={"title":"Internships" }
+    context={"title":"Internships" ,"internships":internships}
     return render(request, "pages/internships.html",context)
 
 def internshipDet(request):
 
     context={"title":"Internship" }
     return render(request, "pages/internshipDet.html",context)
+
+
+class InternshipDet(generic.DetailView):
+    
+    model=Internships
+    template_name="pages/internshipDet.html"

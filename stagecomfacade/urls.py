@@ -9,6 +9,6 @@ urlpatterns = [
     path("logout/", views.logout,name="logout"),
     path('courses/',views.courses, name="courses"),
     path('internships/',views.internships, name="internships"),
-    path('internshipDet/',views.internshipDet, name="internshipDet"),
+    path('internshipDet/<int:pk>',views.InternshipDet.as_view(), name="internshipDet"),
    
 ]

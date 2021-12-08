@@ -83,70 +83,31 @@
      </div>
      
      <div class="rowcrss">
-      <div class="course">
-          <div class="imgcourse">
-              <img src="{% static './images/course.jpg' %}" alt="">
-          </div>
-          
-          <div class="infocourse">
-              <div class="course-level">
-                  all levels
-              </div>
-              <div class="save-course">
-               <i class="lni lni-bookmark"></i>
-              </div>
+     
+      {% for internship in internships %}
 
-              <div class="title-course">
-                  <h4>
-                      Django Framework - build websites with django, python.
-                  </h4>
-              </div>
-
-              <div class="desc">
-                <p>
-                  This internship is with a company that provides cloud-based retail analytics solutions
-                   to develop industry-leading solutions that help transform business worldwide. Intern
-                    tasks include: Assisting with business development, partnership building with foreign
-                     partners, contributing to press activities,
-                
-                </p>
-              </div>
-             
-             
-
-          </div>
-          <div class="enroll-price">
-              <div class="apply-btn">
-                <a href="#" class=" button button-apply">Apply Now</a>
-              </div>
-          </div>
-      </div>
       <div class="course">
         <div class="imgcourse">
-            <img src="{% static './images/course.jpg' %}" alt="">
+            <img src="../static{{internship.image.url}}" alt="ss">
         </div>
         
         <div class="infocourse">
             <div class="course-level">
-                all levels
+              {{internship.level}}
             </div>
             <div class="save-course">
-             <i class="lni lni-bookmark"></i>
+             <i data-id="{{internship.id}}" class="lni lni-bookmark"></i>
             </div>
 
             <div class="title-course">
                 <h4>
-                    Django Framework - build websites with django, python.
+                  {{internship.title}}
                 </h4>
             </div>
 
             <div class="desc">
               <p>
-                This internship is with a company that provides cloud-based retail analytics solutions
-                 to develop industry-leading solutions that help transform business worldwide. Intern
-                  tasks include: Assisting with business development, partnership building with foreign
-                   partners, contributing to press activities,
-                 
+                {{internship.description}}
               </p>
             </div>
            
@@ -155,10 +116,13 @@
         </div>
         <div class="enroll-price">
             <div class="apply-btn">
-              <a href="#" class=" button button-apply">Apply Now</a>
+              <a href="{% url 'internshipDet' internship.id %}"  class=" button button-apply">View Details</a>
             </div>
         </div>
     </div>
+
+      {% endfor %}
+    
 
      </div>
   </div>

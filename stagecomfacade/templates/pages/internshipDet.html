@@ -3,10 +3,12 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static './css/courses.css' %}">
-    <link rel="stylesheet" href="{% static './css/register.css' %}">
-    <link rel="stylesheet" href="{% static './css/internships.css' %}">
-    <link rel="stylesheet" href="{% static './css/internshipDet.css' %}">
+  <link rel="stylesheet" href="{% static './css/register.css' %}">
+  <link rel="stylesheet" href="{% static './css/courses.css' %}">
+  <link rel="stylesheet" href="{% static './css/register.css' %}">
+  <link rel="stylesheet" href="{% static './css/internships.css' %}">
+  <link rel="stylesheet" href="{% static './css/internshipDet.css' %}">
+
 {% endblock css %}
 
 
@@ -17,17 +19,15 @@
     <div class="details-header">
 		<div class="container">
 			<div class="results text-left">
-									<a href="#" class="btn__back">
-						Retour					</a>
-																		<div class="visible-xs pull-right">
-																											<a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
-													
+				<a href="{% url 'internships' %}" class="btn__back">Return</a>
+				<div class="visible-xs pull-right">
+				<a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>						
 					</div>
 							</div>
 			<h1 class="details-header__title">
-				Gestionnaire de paies
-									<span class="hidden-xs">
-																					<a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
+			  {{object.title}}
+			<span class="hidden-xs">
+    <a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
 													
 					</span>
 							</h1>
@@ -36,22 +36,32 @@
 				</div>
 						<ul class="listing-item__info clearfix inline-block">
 				<li class="listing-item__info--item listing-item__info--item-company">
-					LA2C
+					{{object.company}}
 				</li>
 									<li class="listing-item__info--item listing-item__info--item-location">
-						92 Rue Edouard Vaillant, Levallois-Perret, France
+						{{object.location}}
 					</li>
 								<li class="listing-item__info--item listing-item__info--item-date">
-					nov. 15, 2021
+				  {{object.date}}
 				</li>
 			</ul>
 			<div class="job-type">
-				
-									<span class="job-type__value">Alternance / Apprentissage</span>
-								<span class="job-type__value">
-                            Comptabilité - Gestion                    </span>
-            <span class="job-type__value">
-                            Administratif et services généraux                    </span>
+
+
+        
+        <script>
+          var listspan="{{object.tags}}".split(',')
+
+          for(var listspanid=0; listspanid<listspan.length; listspanid++){
+            var createdspan = document.createElement("span")
+            createdspan.setAttribute("class","job-type__value")
+            var textcreated = document.createTextNode(listspan[listspanid])
+            createdspan.appendChild(textcreated)
+            document.querySelector(".job-type").appendChild(createdspan)
+          }
+          
+        </script>
+     
 			</div>
 		</div>
 	</div>
@@ -83,9 +93,9 @@
      
   <div class="details-footer affix">
     <div class="container cont-share-post">
-                                         <a class="btn details-footer__btn-apply btn__orange btn__bold" href="" data-toggle="modal" data-target="#apply-modal" data-href="					https://www.stage.fr/apply-now/?json_redirect=true&amp;listing_id=619828&amp;ajaxRelocate=1
-          " data-applied="" data-title="												Postuler au poste Gestionnaire de paies à LA2C			" rel="nofollow">
-        Postuler Maintenant		</a>
+      <a class="btn details-footer__btn-apply btn__orange btn__bold" href="#apply" id="btnapply">
+        Postuler Maintenant	
+      </a>
   
                 <div class="social-share pull-right social-share-pull">
           <span class="social-share__title">
@@ -113,5 +123,61 @@
 </section>
 
 
+<div class="wrapper-parent">
 
+  
+<div class="wrapper" id="wrapperdiv">
+  <h2>Apply for an internship</h2>
+  <form action="#" method="post">
+    {% csrf_token %}
+    <div class="input-box">
+      <label class="custom-field one">
+        <!-- <input type="text" placeholder=" " required> -->
+        <input type="text" >
+        <span class="placeholder">Create username</span>
+      </label>
+    </div>
+    <div class="input-box">
+      <label class="custom-field one">
+        <!-- <input type="email" placeholder=" " required> -->
+        <input type="email" >
+        <span class="placeholder">Enter your email</span>
+      </label>
+      <!-- <input type="text" placeholder="Enter your email" required> -->
+    </div>
+    <div class="input-box">
+      <label class="custom-field one">
+        <!-- <input type="password" placeholder=" " required> -->
+        <input type="file" class="inputfile" id="" style="font-size: 14px;padding-top:5px">
+       
+      </label>
+      <!-- <input type="password" placeholder="Create password" required> -->
+    </div>
+    <div class="input-box">
+      <!-- <input type="password" placeholder="Confirm password" required> -->
+      <label class="custom-field one">
+        <!-- <input type="password" placeholder=" " required> -->
+        <textarea name="" id="textareainput" style="padding: 5px; max-width:521px"></textarea>
+        <span class="placeholder">Motivation letter</span>
+      </label>
+    </div>
+    
+    <br>
+    <div class="policy"  style="width: 100%">
+      <input type="checkbox">
+      <h3>I accept all terms & condition</h3>
+    </div>
+    <!-- <div class="input-box button"> -->
+      <input type="Submit" class="button button-small anchor btnmarginleft" style="margin-bottom: 15px;" value="Validate a demande">
+
+    
+   
+  </form>
+</div>
+</div>
 {% endblock content %}
+
+
+{% block js %}
+<script src="{% static './js/internship.js' %}"></script>
+{% endblock js %}

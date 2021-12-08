@@ -2,11 +2,48 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.db.models.fields import CharField
 from .fields import OrderField
 
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 # Create your models here.
+
+
+class Internships(models.Model):
+    title=models.CharField(max_length=255)
+    image=models.ImageField(blank=False, upload_to="Internships_images")
+    level=models.CharField(max_length=100)
+    company=models.ForeignKey(User,blank=True,on_delete=models.CASCADE)
+    location=models.CharField(max_length=255)
+    date=models.DateTimeField(blank=True)
+    date_added=models.DateTimeField(auto_now_add=True)
+    tags=models.CharField(max_length=255)
+    requirements=models.TextField(max_length=255,blank=True)
+    description=models.TextField(blank=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -787,7 +787,18 @@ section{
  .padding0{
      padding:0
  }
+ @media screen and (min-width: 800px){
+
+ .inputfile[type="file"]{
+    min-width: 520px !important;
+  }
+
+}
   @media screen and (max-width: 800px) {
+    
+      .inputfile[type="file"]{
+        min-width: 300px !important;
+      }
     .block-first{
         min-height: 100vh;
         max-height: 101vh;
