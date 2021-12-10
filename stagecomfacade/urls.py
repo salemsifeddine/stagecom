@@ -11,5 +11,7 @@ urlpatterns = [
     path('internships/',views.internships, name="internships"),
     path('internshipDet/<int:pk>',views.InternshipDet.as_view(), name="internshipDet"),
     path('internshipApi/',views.saveInternship, name="internshipApi"),
+    path('blog/',views.blog, name="blog"),
+    path('blogDet/',views.blogDet, name="blogDet"),
    
 ]

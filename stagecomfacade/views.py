@@ -186,3 +186,10 @@ def saveInternship(request):
 
 
 
+def blog(request):
+
+    return render(request, "pages/blog.html",{})
+
+def blogDet(request):
+
+    return render(request, "pages/blogDet.html",{})
