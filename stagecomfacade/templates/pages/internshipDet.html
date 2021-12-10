@@ -8,11 +8,19 @@
   <link rel="stylesheet" href="{% static './css/register.css' %}">
   <link rel="stylesheet" href="{% static './css/internships.css' %}">
   <link rel="stylesheet" href="{% static './css/internshipDet.css' %}">
-
+  <style>
+    .details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}
+  </style>
+  <script>
+    let userNm111="{{username}}"
+    let userEml11="{{email}}"
+  </script>
 {% endblock css %}
 
 
 {% block content %}
+
+
 
 <section class="containerInternship">
  
@@ -26,9 +34,12 @@
 							</div>
 			<h1 class="details-header__title">
 			  {{object.title}}
-			<span class="hidden-xs">
-    <a class="save-job save-internship"  data-internship="{{object.id}}" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
-													
+			<span class="hidden-xs"> 
+        {% if saved == "exist" %}
+        <a class="save-job save-internship added"  data-internship="{{object.id}}" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
+        {% else %}
+        <a class="save-job save-internship "  data-internship="{{object.id}}" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
+        {% endif %}
 					</span>
 							</h1>
 							<div class="listing-item__info--item listing-item__info--item-salary-range">
@@ -134,14 +145,16 @@
     <div class="input-box">
       <label class="custom-field one">
         <!-- <input type="text" placeholder=" " required> -->
-        <input type="text" >
-        <span class="placeholder">Create username</span>
+        <!-- <input type="text" id="usernameUser"> -->
+        {{form.username}}
+        <span class="placeholder">username</span>
       </label>
     </div>
     <div class="input-box">
       <label class="custom-field one">
         <!-- <input type="email" placeholder=" " required> -->
-        <input type="email" >
+        <!-- <input type="email" id="EmailUser" > -->
+        {{form.email}}
         <span class="placeholder">Enter your email</span>
       </label>
       <!-- <input type="text" placeholder="Enter your email" required> -->
@@ -149,7 +162,8 @@
     <div class="input-box">
       <label class="custom-field one">
         <!-- <input type="password" placeholder=" " required> -->
-        <input type="file" class="inputfile" id="" style="font-size: 14px;padding-top:5px">
+        <!-- <input type="file" class="inputfile" id="" style="font-size: 14px;padding-top:5px"> -->
+        {{form.circulumvitae}}
        
       </label>
       <!-- <input type="password" placeholder="Create password" required> -->
@@ -158,7 +172,8 @@
       <!-- <input type="password" placeholder="Confirm password" required> -->
       <label class="custom-field one">
         <!-- <input type="password" placeholder=" " required> -->
-        <textarea name="" id="textareainput" style="padding: 5px; max-width:521px"></textarea>
+        <!-- <textarea name="" id="textareainput" style="padding: 5px; max-width:521px"></textarea> -->
+        {{form.motivationLetter}}
         <span class="placeholder">Motivation letter</span>
       </label>
     </div>
@@ -184,4 +199,5 @@
 
 {% block js %}
 <script src="{% static './js/internship.js' %}"></script>
+
 {% endblock js %}

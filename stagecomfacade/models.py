@@ -1,8 +1,10 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db.models.fields import CharField
+from django.http import request
 from .fields import OrderField
 
 from django.template.loader import render_to_string
@@ -32,6 +34,19 @@ class WishInternship(models.Model):
     
     def __str__(self):
         return self.internship.title
+
+class InternshipsApplicant(models.Model):
+    username=models.CharField(max_length=255)
+    email= models.EmailField(max_length=254)
+    internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
+    user= models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
+    circulumvitae = models.FileField(upload_to="cv internships", blank=True)
+    motivationLetter = models.TextField(blank=False)
+
+    def __str__(str):
+        return f"internship Applicant"
+
+
 
 
 

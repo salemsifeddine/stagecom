@@ -81,8 +81,27 @@ def courses(request):
 def internships(request):
     
     internships=Internships.objects.all()
+    savedInternships= WishInternship.objects.filter(user=request.user)
+    saveArray=[]
+    arrayinternships=[]
+    for  intnum,intship in enumerate(internships):
+        
+        if str(intship) == str(savedInternships[intnum]):
+            flagSavedInternship = "exist"
+            
+        else:
+            flagSavedInternship = False
+           
 
-    context={"title":"Internships" ,"internships":internships}
+        myobject= {"saved":flagSavedInternship,"intship":intship}
+
+        arrayinternships.append(myobject)
+
+
+    
+    
+
+    context={"title":"Internships" ,"internships":arrayinternships, "wishInternships":savedInternships}
     return render(request, "pages/internships.html",context)
 
 def internshipDet(request):
@@ -95,6 +114,48 @@ class InternshipDet(generic.DetailView):
     
     model=Internships
     template_name="pages/internshipDet.html"
+    def get_context_data(self,**kwargs):
+        internships=Internships.objects.all()
+        savedInternships= WishInternship.objects.filter(user=self.request.user)
+        arrayinternships=[]
+        dataInternship = super().get_context_data(**kwargs)
+        internship = super().get_context_data(**kwargs)
+        
+        dataInternship["internshipSaved"]= WishInternship.objects.all().filter(internship=self.object.pk)
+        # total["products"]=internships.objects.all()
+        
+        for  intnum,intship in enumerate(internships):
+        
+            if str(intship) == str(savedInternships[intnum]):
+                flagSavedInternship = "exist"
+                
+            else:
+                flagSavedInternship = False
+            
+
+            dataInternship["saved"]= flagSavedInternship
+
+            if self.request.user.is_authenticated:
+                dataInternship["username"]= self.request.user.username
+                dataInternship["email"] = self.request.user.email
+
+       
+        if self.request.method != "POST":
+            form=applicantInternship()
+            dataInternship["form"]=form
+        else:
+            form=applicantInternship(data=self.request.POST)
+            dataInternship["form"]=form
+            if form.is_valid():
+                
+                formcommited= form.save(commit=False)
+                formcommited.internship = Internships.objects.all().filter(internship=self.object.pk)
+                formcommited.user = self.request.user
+
+                formcommited.save()
+                return redirect('home')
+        # if self.request.user.is_authenticated:
+        return dataInternship
 
 
 

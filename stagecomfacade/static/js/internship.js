@@ -1,33 +1,61 @@
 var wrapperparrent = document.querySelector(".wrapper-parent");
 
 var wrapperDiv = document.getElementById("wrapperdiv")
-var concelbtn = document.querySelector(".concelbtn");
-
-
-
-concelbtn.addEventListener("click",function(e){
+if(document.querySelector(".concelbtn")){
+    var concelbtn = document.querySelector(".concelbtn");
     
 
-   
-    $(".wrapper-parent").fadeOut(500)
-    setTimeout(() => {
-        wrapperDiv.style.transform = "translate(0,-25%)"
-    }, 200);
+    concelbtn.addEventListener("click",function(e){
+        
+
     
+        $(".wrapper-parent").fadeOut(500)
+        setTimeout(() => {
+            wrapperDiv.style.transform = "translate(0,-25%)"
+        }, 200);
+        
+        
+
+    })
+
+}
+
+
+
+
+if(document.getElementById("btnapply")){
+    document.getElementById("btnapply") .addEventListener("click",function(){
+
+        
+
+
+        $(".wrapper-parent").fadeIn(500)
+        setTimeout(() => {
+            wrapperDiv.style.transform = "translate(0,0)"
+            
+        }, 200);
+        var inputUserName = document.getElementById("usernameUser")
+        var inputUserEmail = document.getElementById("EmailUser")
+        var inputTextArea = document.getElementById("textareainput")
+        setTimeout(() => {
+            inputUserName.value = userNm111
+            inputUserEmail.value = userEml11
+            inputTextArea.addEventListener("keyup",function(){
+                if(inputTextArea.value.length > 0 ){
+                
+                   this.nextElementSibling.style.display="none"
+                }
+                if(inputTextArea.value.length == 0 ){
+                    this.nextElementSibling.style.display="block"
+                }
+            })
+        }, 200);
+
+
+       
+    })
     
-
-})
-
-
-
-document.getElementById("btnapply").addEventListener("click",function(){
-
-    $(".wrapper-parent").fadeIn(500)
-    setTimeout(() => {
-        wrapperDiv.style.transform = "translate(0,0)"
-    }, 200);
-   
-})
+}
 
 
 
@@ -64,12 +92,15 @@ var savebtninternship = document.querySelector('.save-internship')
 savebtninternship.addEventListener("click",function(){
 
         this.classList.toggle("added")
+        if(this.parentNode.classList[0] == "save-course"){
+            var parentdivSave= this.parentNode
+            parentdivSave.classList.toggle("saveinternship")
+        }
         
         var wishinternship=this.dataset.internship 
     
         if(user == "AnonymousUser"){
-            var logauth = $('.logauth');
-            logauth.fadeIn(500);
+            console.log('not logged')
         
         }else{
             if(this.classList.contains('added')){

@@ -31,12 +31,15 @@ $(window).on("load",function(e){
 
 
 
-var listscrolleft= document.getElementById("revscroll");
+if(document.getElementById("revscroll")){
+    var listscrolleft= document.getElementById("revscroll");
+    listscrolleft.style.left = 0;
+    listscrolleft.style.transitionDuration ="0px"
+}
   
     
 
-listscrolleft.style.left = 0;
-listscrolleft.style.transitionDuration ="0px"
+
     
 
 

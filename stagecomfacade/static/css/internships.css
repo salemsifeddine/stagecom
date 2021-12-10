@@ -202,7 +202,7 @@ section{
     cursor: pointer;
 }
 .lni-bookmark:hover{
-    color: rgba(54, 116, 54, 0.432);
+    color: rgba(54, 116, 54, 0.5);
 }
 
 
@@ -399,4 +399,9 @@ section{
     position: relative;
     top: 8px;
     vertical-align: top;
+}
+
+
+.saveinternship{
+    background-color:#8f68fb;
 }

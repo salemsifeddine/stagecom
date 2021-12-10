@@ -93,8 +93,6 @@
     position: relative;
     padding-right: 25px;
     margin: 0 25px 0 0;
-        margin-top: 0px;
-        margin-bottom: 0px;
     font-weight: 500;
     display: inline-block;
   
@@ -219,9 +217,6 @@ listing-item__info--item {
     margin-bottom: 0;
 }
 
-.details-header .listing-item__info li {
-    margin-bottom: 10px !important;
-}
 
 .listing-item__info--item:last-child {
     padding-right: 0;
@@ -401,3 +396,17 @@ clearfix::after{
     font-size:35px;
     text-align: center
 }
+
+@media screen and (max-width: 800px) {
+    .details-header .listing-item__info li {
+        margin-bottom: 5px !important;
+    }
+    .details-header__title{
+        font-size:16px;
+        line-height: 20px;
+    }
+    .job-type__value{
+        margin: 0 6px 4px 0
+    }
+}
+

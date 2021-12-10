@@ -88,26 +88,35 @@
 
       <div class="course">
         <div class="imgcourse">
-            <img src="../static{{internship.image.url}}" alt="ss">
+            <img src="../static{{internship.intship.image.url}}" alt="ss">
         </div>
         
         <div class="infocourse">
             <div class="course-level">
-              {{internship.level}}
+              {{internship.intship.level}}
             </div>
+            
+            {% if internship.saved == "exist" %}
+            <div class="save-course saveinternship">
+             <i data-internship="{{internship.intship.id}}" class="lni lni-bookmark save-internship added"></i>
+            </div>
+            {% else %}
             <div class="save-course">
-             <i data-id="{{internship.id}}" class="lni lni-bookmark save-internship"></i>
-            </div>
+             
+              <i data-internship="{{internship.intship.id}}" class="lni lni-bookmark save-internship"></i>
+             </div>
+            {% endif %}
+           
 
             <div class="title-course">
                 <h4>
-                  {{internship.title}}
+                  {{internship.intship.title}}
                 </h4>
             </div>
 
             <div class="desc">
               <p>
-                {{internship.description}}
+                {{internship.intship.description}}
               </p>
             </div>
            
@@ -116,7 +125,7 @@
         </div>
         <div class="enroll-price">
             <div class="apply-btn">
-              <a href="{% url 'internshipDet' internship.id %}"  class=" button button-apply">View Details</a>
+              <a href="{% url 'internshipDet' internship.intship.id %}"  class=" button button-apply">View Details</a>
             </div>
         </div>
     </div>
@@ -132,3 +141,9 @@
 
 
 {% endblock content %}
+
+{% block js %}
+
+<script src="{% static 'js/internship.js' %}"></script>
+
+{% endblock js %}

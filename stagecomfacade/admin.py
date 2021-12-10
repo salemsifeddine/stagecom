@@ -5,7 +5,7 @@ from .models import *
 
 admin.site.register(Internships)
 admin.site.register(WishInternship)
-
+admin.site.register(InternshipsApplicant)
 
 
 
