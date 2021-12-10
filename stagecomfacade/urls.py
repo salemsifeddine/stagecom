@@ -10,5 +10,6 @@ urlpatterns = [
     path('courses/',views.courses, name="courses"),
     path('internships/',views.internships, name="internships"),
     path('internshipDet/<int:pk>',views.InternshipDet.as_view(), name="internshipDet"),
+    path('internshipApi/',views.saveInternship, name="internshipApi"),
    
 ]

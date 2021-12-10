@@ -22,15 +22,16 @@ class Internships(models.Model):
     requirements=models.TextField(max_length=255,blank=True)
     description=models.TextField(blank=True)
 
+    def __str__(self):
+        return self.title
 
 
-
-
-
-
-
-
-
+class WishInternship(models.Model):
+    internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
+    user= models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.internship.title
 
 
 

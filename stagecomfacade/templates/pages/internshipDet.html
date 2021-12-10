@@ -21,13 +21,13 @@
 			<div class="results text-left">
 				<a href="{% url 'internships' %}" class="btn__back">Return</a>
 				<div class="visible-xs pull-right">
-				<a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>						
+				<a class="save-job "" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#internship"></a>						
 					</div>
 							</div>
 			<h1 class="details-header__title">
 			  {{object.title}}
 			<span class="hidden-xs">
-    <a class="save-job" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
+    <a class="save-job save-internship"  data-internship="{{object.id}}" data-toggle="modal" data-target="#apply-modal" data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
 													
 					</span>
 							</h1>
@@ -127,6 +127,7 @@
 
   
 <div class="wrapper" id="wrapperdiv">
+  
   <h2>Apply for an internship</h2>
   <form action="#" method="post">
     {% csrf_token %}
@@ -173,6 +174,9 @@
     
    
   </form>
+  <div class="concelbtn">
+    <span>&times</span>
+  </div>
 </div>
 </div>
 {% endblock content %}

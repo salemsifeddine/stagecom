@@ -1,12 +1,101 @@
 var wrapperparrent = document.querySelector(".wrapper-parent");
+
 var wrapperDiv = document.getElementById("wrapperdiv")
+var concelbtn = document.querySelector(".concelbtn");
+
+
+
+concelbtn.addEventListener("click",function(e){
+    
+
+   
+    $(".wrapper-parent").fadeOut(500)
+    setTimeout(() => {
+        wrapperDiv.style.transform = "translate(0,-25%)"
+    }, 200);
+    
+    
+
+})
+
 
 
 document.getElementById("btnapply").addEventListener("click",function(){
-    wrapperparrent.style.display= "block"
-    wrapperparrent.style.opacity = 1
+
+    $(".wrapper-parent").fadeIn(500)
     setTimeout(() => {
         wrapperDiv.style.transform = "translate(0,0)"
     }, 200);
-
+   
 })
+
+
+
+
+function InternshipApi(id, action){
+    url="/internshipApi/"
+    fetch(url,{
+        method:"POST",
+        headers:{
+            "content-type":"application/json",
+            "X-CSRFToken":csrftoken
+        },
+        body: JSON.stringify({
+            "internshipId":id,
+            "action":action,
+            
+        })
+    })
+    .then((response)=>{
+        return response.json()
+    })
+    .then((data)=>{
+        //
+     console.log(data)
+            //  location.reload()
+        
+       
+
+        //
+    })
+}
+
+var savebtninternship = document.querySelector('.save-internship') 
+savebtninternship.addEventListener("click",function(){
+
+        this.classList.toggle("added")
+        
+        var wishinternship=this.dataset.internship 
+    
+        if(user == "AnonymousUser"){
+            var logauth = $('.logauth');
+            logauth.fadeIn(500);
+        
+        }else{
+            if(this.classList.contains('added')){
+                var styleele = document.createElement("style");
+                var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}")
+                styleele.appendChild(textStyle)
+                document.head.appendChild(styleele)
+    
+                // this.innerHTML = `<i class="fas fa-heart"></i> Remove From WishList`
+                InternshipApi(wishinternship,"addInternship")
+        
+            }else{
+                var styleele = document.createElement("style");
+                var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(255, 255, 255, 0.3)}")
+                styleele.appendChild(textStyle)
+                document.head.appendChild(styleele)
+                // this.innerHTML = `<i class="far fa-heart"></i> Add To WishList`
+                InternshipApi(wishinternship,"removeInternship")
+        
+            }
+
+        
+        }
+        
+    
+ 
+    
+})
+

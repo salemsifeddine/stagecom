@@ -4,6 +4,7 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Internships)
+admin.site.register(WishInternship)
 
 
 

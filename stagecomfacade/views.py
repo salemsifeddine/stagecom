@@ -9,6 +9,8 @@ from django.contrib.auth import  authenticate
 from django.contrib.auth import login as auth_login
 from .forms import *
 from django.views import generic
+import json
+from django.http import JsonResponse
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -93,3 +95,33 @@ class InternshipDet(generic.DetailView):
     
     model=Internships
     template_name="pages/internshipDet.html"
+
+
+
+
+def saveInternship(request):
+    data= json.loads(request.body.decode('utf-8'))
+    idproduct= data["internshipId"]
+    action= data["action"]
+
+    internship_saved= Internships.objects.all().filter(id=idproduct)
+   
+        
+   
+    if action == "addInternship":
+        addInternship , created = WishInternship.objects.get_or_create(user=request.user, internship=internship_saved.first())
+        addInternship.save()
+        action="addInternship"
+   
+    elif action == "removeInternship":
+        removeInternship= WishInternship.objects.get(user=request.user, internship=internship_saved.first()).delete() 
+        
+        action="removeInternship"
+  
+    
+    data_json={"action":action, "id":internship_saved.first().title}
+    return JsonResponse( data_json, safe=False)
+
+
+
+

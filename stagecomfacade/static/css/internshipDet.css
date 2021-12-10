@@ -302,7 +302,7 @@ clearfix::after{
     top: 0;
     left:0;
     z-index: 99999999999999999999999999999999999999999999;
-    opacity: 0;
+    opacity:1;
     display: none;
     transition: opacity 0.3s ease;
 }
@@ -377,4 +377,27 @@ clearfix::after{
         margin-left:40px
     }
     
+}
+
+
+.job-type__value:hover {
+    background-color: #5361FF;
+    color: #FAFAFF;
+}
+
+
+.concelbtn{
+    position: absolute;
+    right:5px;
+    top:0;
+    cursor:pointer;
+    width: 30px;
+    height: 50px;
+    align-items: center;
+    align-self: center;
+}
+
+.concelbtn span{
+    font-size:35px;
+    text-align: center
 }
