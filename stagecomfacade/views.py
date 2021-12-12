@@ -187,9 +187,16 @@ def saveInternship(request):
 
 
 def blog(request):
+    context={
+        "blogs":Blog.objects.all()
+    }
 
-    return render(request, "pages/blog.html",{})
+    return render(request, "pages/blog.html",context)
 
 def blogDet(request):
 
-    return render(request, "pages/blogDet.html",{})
+    context={
+        "blogs":Blog.objects.all()
+    }
+
+    return render(request, "pages/blogDet.html",context)

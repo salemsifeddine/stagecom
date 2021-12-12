@@ -47,6 +47,14 @@ class InternshipsApplicant(models.Model):
         return f"internship Applicant"
 
 
+class Blog(models.Model):
+    title=models.CharField(max_length=255)
+    image=models.ImageField(upload_to="blog_images",blank=True)
+    date_added=models.DateTimeField(auto_now_add=True, blank=True)
+    description=models.TextField()
+    category=models.CharField(max_length=60)
+
+
 
 
 
