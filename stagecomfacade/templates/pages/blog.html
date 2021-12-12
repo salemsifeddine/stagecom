@@ -6,14 +6,14 @@
 {% endblock css %}
 
 {% block content %}
-<section class="blog-listing-posts">
+<section class="blog-listing-posts" style="padding-top:10px">
     <div class="section-container blog-listing-posts-container">
       <div class="blog-listing-posts-content">
         <ul class="list-unstyled xs-mb-80">
           
            {% for blog in blogs %}
             <li class="blog-listing-posts-item mix edge ">
-              <a class="decoration-none xs-pb-40 xs-pt-40 prl-25 flex flex-wrap" href="{%url 'blogDet'%}">
+              <a class="decoration-none xs-pb-40 xs-pt-40 prl-25 flex flex-wrap" href="{% url 'blogDet' blog.id %}">
 
                 <div class="blog-listing-posts-item-image">
                   

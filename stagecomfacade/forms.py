@@ -66,26 +66,13 @@ class applicantInternship(forms.Form):
 
 
 
-
-
-   #  if request.method != "POST":
-   #      form=RegisterForm()
-   #  else:
-   #      form=RegisterForm(data=request.POST)
-
-   #      if form.is_valid():
-            
-           
-    
-   #          usernamereg=form.cleaned_data.get("username")
-   #          emailreg=form.cleaned_data.get("email")
-   #          passwordreg=form.cleaned_data.get("password1")
-
-   #          form.save()
-   #          new_user = authenticate(username=usernamereg,password=passwordreg)
-   #          if new_user is not None:
-
-   #              auth_login(request,new_user)
-            
-            
-   #          return redirect('home')
+class ContactUsForm(forms.Form):
+      first_name = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
+      last_name = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
+      email = forms.CharField(
+       widget=forms.EmailInput(attrs={'placeholder': ' ',"name":"email","id":"EmailUser"})
+      )
+      subject =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px; max-width:521px;max-height: 70px","name":"email","id":"textareainput"}))
+      class Meta:
+         model=ContactUs
+         fields = "__all__"

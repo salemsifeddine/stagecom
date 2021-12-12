@@ -50,9 +50,29 @@ class InternshipsApplicant(models.Model):
 class Blog(models.Model):
     title=models.CharField(max_length=255)
     image=models.ImageField(upload_to="blog_images",blank=True)
-    date_added=models.DateTimeField(auto_now_add=True, blank=True)
-    description=models.TextField()
     category=models.CharField(max_length=60)
+    date_added=models.DateTimeField(auto_now_add=True, blank=True)
+    description1=models.TextField()
+    description2=models.TextField()
+    description3=models.TextField()
+    description4=models.TextField()
+    description5=models.TextField()
+    description6=models.TextField()
+    quote=models.TextField()
+    authorQuote=models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.title
+
+class ContactUs(models.Model):
+    first_name=models.CharField(max_length=60)
+    last_name=models.CharField(max_length=60)
+    email=models.EmailField(max_length=255)
+    subject=models.TextField()
+
+    def __str__(self):
+        return f"{self.first_name} contact"
+    
 
 
 

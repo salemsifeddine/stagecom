@@ -86,10 +86,11 @@ def internships(request):
     arrayinternships=[]
     for  intnum,intship in enumerate(internships):
         
-        if str(intship) == str(savedInternships[intnum]):
+        try:
+            str(intship) == str(savedInternships[intnum])
             flagSavedInternship = "exist"
             
-        else:
+        except:
             flagSavedInternship = False
            
 
@@ -126,10 +127,11 @@ class InternshipDet(generic.DetailView):
         
         for  intnum,intship in enumerate(internships):
         
-            if str(intship) == str(savedInternships[intnum]):
+            try:
+                str(intship) == str(savedInternships[intnum])
                 flagSavedInternship = "exist"
                 
-            else:
+            except:
                 flagSavedInternship = False
             
 
@@ -193,10 +195,23 @@ def blog(request):
 
     return render(request, "pages/blog.html",context)
 
-def blogDet(request):
 
-    context={
-        "blogs":Blog.objects.all()
-    }
+class BlogDet(generic.DetailView):
+    model=Blog
+    template_name="pages/blogDet.html"
 
-    return render(request, "pages/blogDet.html",context)
+
+def contact(request):
+
+
+    if request.method != "POST":
+        form = ContactUsForm()
+    else:
+        form= ContactUsForm(data=request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("home")
+    context={"form":form}
+    return render(request, "pages/contact.html",context)

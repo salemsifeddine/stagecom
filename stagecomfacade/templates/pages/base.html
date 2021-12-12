@@ -110,7 +110,7 @@
                     <li class="upward"><a href="{% url 'internships' %}"><i class="fa fa-info site-nav--icon"></i>Internships</a></li>
                     <li class="upward"><a href="{% url 'courses' %}"><i class="fas fa-pencil-alt site-nav--icon"></i>Courses</a></li>
                     <li class="upward"><a href="{% url 'blog' %}"><i class="fa fa-envelope site-nav--icon"></i>Blog</a></li>
-                    <li class="upward"><a href=""><i class="fa fa-envelope site-nav--icon"></i>Contact</a></li>
+                    <li class="upward"><a href="{% url 'contact' %}"><i class="fa fa-envelope site-nav--icon"></i>Contact</a></li>
                     {% if request.user.is_authenticated %}
                     <li class="authbtn" style=" min-width:80px"><a style="padding: 5px;width:100%;margin-left: 0;color: #fff;" href="{% url 'logout' %}" class="button">Logout</a></li>
                     {% else %}

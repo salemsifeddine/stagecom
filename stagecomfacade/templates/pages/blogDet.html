@@ -27,12 +27,12 @@
         <div class="hero-blocks-inner relative prl-5">
           <div class="hero-blocks-middle">
     
-            <h1 class="title-2 xs-mb-30">Section to Power Content Delivery and Edge Services for Victorian Government’s Single Digital Presence Platform</h1>
-            <h5 class="text-16 text-blockquote">November 29, 2021</h5>
+            <h1 class="title-2 xs-mb-30">{{object.title}}</h1>
+            <h5 class="text-16 text-blockquote">{{object.date_added}}</h5>
             
             <ul class="list-flex xs-mt-8">
               
-                <li class="xs-mr-20"><a class="text-18-regular text-light-blue decoration-none" href="https://www.section.io/blog/tag/edge">Edge</a></li>
+                <li class="xs-mr-20"><a class="text-18-regular text-light-blue decoration-none" href="#">{{object.category}}</a></li>
               
             </ul>
     
@@ -64,17 +64,17 @@
                 <div class="addthis_inline_share_toolbox"></div>
             </div>
             <div class="section-rich-text-leading">
-            <p>Section has been selected by the <a href="https://www.vic.gov.au/">Victorian Government</a>’s Department of Premier and Cabinet (DPC) as part of a competitive tender process to provide Content Delivery Network (CDN) and Edge Computing services for its Single Digital Presence (SDP) platform.</p>
-    <p> <img src="{% static './images/wp5772701-anti-social-club-computer-wallpapers.jpg' %}" alt="">
-    Section will provide the Victorian Government a range of solutions, including application performance optimization, security/edge hosting and routing, streamlined by DevOps workflows, and meshed with DPC’s Continuous Integration / Continuous Delivery (CI/CD) capabilities. The solution is designed to support the government’s efforts to improve efficiency, accessibility and user experience by consolidating valuable public information and applications through its SDP initiative.</p>
-    <p>Section makes it easy for government and commercial organizations to deliver faster, more personalized and secure digital experiences by removing the burdens associated with provisioning, monitoring and scaling these distributed workloads. Unlike inflexible cloud and legacy CDN platforms, Section gives DPC freedom to better control, protect and grow future edge services and other capabilities for its SDP platform. DPC will look to leverage Section’s Edge Services Marketplace, which includes readily available open-source and third-party options for web application firewalls (WAFs), bot blocking, caching, server-side A/B testing, image optimization and more.</p>
+            <p>{{object.description1}}</p>
+    <p> <img src="{% static object.image.url %}" alt="">
+    {{object.description2}}.</p>
+    <p>{{object.description3}}.</p>
     <blockquote>
-    <p>“The Victorian Government valued our flexible, modular, vendor-agnostic platform, providing a range of options to meet its needs today and into the future.”
-    <cite>- Matthew Johnson, General Manager, APAC at Section</cite></p>
+    <p>“{{object.quote}}”
+    <cite>- {{object.authorQuote}}</cite></p>
     </blockquote>
-    <p>“Consolidating and distributing application workloads helps governments efficiently connect with citizens in exciting new ways. DPC recognized that a robust content delivery and edge computing platform is critical to the optimal user experience it seeks to create with its SDP platform,” said Matthew Johnson.</p>
-    <p>The <a href="https://www.singledigitalpresence.vic.gov.au/">SDP</a> platform is designed to make it easier for people to find, understand and use Victorian Government information. Initiated in 2016, SDP began with a business case to consolidate all DPC websites onto a common platform. Since then, over 100 websites with content from all 9 Departments plus Victoria Police have been consolidated on SDP to realize the full benefits of a whole government approach to digital delivery.</p>
-    <p>Section is partnering with <a href="https://salsadigital.com.au/">Salsa Digital</a>, an open source focused company of digital engineers that works with governments across Australia in providing end-to-end digital experiences, as part of the Victorian Government’s SDP project. Salsa delivers expert services for governments around development, infrastructure, governance and edge capabilities. Looking ahead, the DPC has identified opportunities to push more edge-enable solutions, such as <a href="https://www.quantcdn.io/">QuantCDN</a>, a static site generation and hosting platform.</p>
+    <p>“{{object.description4}}.</p>
+    <p>{{object.description5}}.</p>
+    <p>{{object.description6}}.</p>
             </div>
           </div>
         </div>
@@ -84,14 +84,14 @@
     <section class="section-rich-text xs-pb-80 xs-pt-80">
       <div class="section-container">
         <div class="section-rich-text-inner prl-5">
-          <a class="decoration-none" href="/contact-us">
+          <a class="decoration-none" href="#contactus">
             <div class="cta-block-box -green-blocks relative xs-mt-40 xs-mb-80">
               <div class="cta-block-box-left-block absolute"></div>
               <div class="cta-block-box-left-stripes absolute"></div>
               <div class="cta-block-box-inner pa-5 cta-shadow">
                 <h3 class="title-3 xs-mb-20">Ready to Jump In?</h3>
                 <p class="xs-mb-20">Our team of engineers is ready to talk through edge compute solutions to fit your application's needs. </p>
-                <span class="link-with-arrow-green text-green text-18-medium">Talk to a Developer</span>
+                <span class="link-with-arrow-green text-green text-18-medium">Contact Us</span>
               </div>
               <div class="cta-block-box-right-block absolute"></div>
               <div class="cta-block-box-right-stripes absolute"></div>
@@ -113,7 +113,7 @@
         <div class="resource-block-inner flex flex-wrap justify-center">
     
           
-          <a class="decoration-none resource-block-item" href="/blog/top-considerations-for-containers-at-edge/">
+          <a class="decoration-none resource-block-item" href="#">
             <div class="resource-block-item-wrap fill-white flex cta-shadow flex-column">
               
                 

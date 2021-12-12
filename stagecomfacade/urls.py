@@ -12,6 +12,6 @@ urlpatterns = [
     path('internshipDet/<int:pk>',views.InternshipDet.as_view(), name="internshipDet"),
     path('internshipApi/',views.saveInternship, name="internshipApi"),
     path('blog/',views.blog, name="blog"),
-    path('blogDet/',views.blogDet, name="blogDet"),
-   
+    path('blogDet/<int:pk>',views.BlogDet.as_view(), name="blogDet"),
+    path('contact',views.contact, name="contact")
 ]

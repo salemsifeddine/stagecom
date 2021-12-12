@@ -7,7 +7,7 @@ admin.site.register(Internships)
 admin.site.register(WishInternship)
 admin.site.register(InternshipsApplicant)
 admin.site.register(Blog)
-
+admin.site.register(ContactUs)
 
 
 ####################################

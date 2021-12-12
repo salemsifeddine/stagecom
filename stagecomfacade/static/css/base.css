@@ -894,3 +894,7 @@ section{
   }
 
 
+
+.shape-before, .shape-after{
+    z-index: -999;
+}

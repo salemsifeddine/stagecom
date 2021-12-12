@@ -1,0 +1,103 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block css %}
+    
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    
+{% endblock css %}
+
+
+{% block content %}
+<div class="main-contact">
+    
+    <div class="text-contact">
+        <h2>Contact Us</h2>
+    </div>
+    <div class="img-contact">
+        <img src="{% static 'images/wp5772701-anti-social-club-computer-wallpapers.jpg' %}" alt="">
+    </div>
+    
+</div>
+
+<section class="contact-section">
+
+    <h3>Let's Start a Conversation</h3>
+
+  
+	
+
+		<div class="contact-container">
+            <div class="contact-left-side">
+
+                <div class="title-secondary">Learn More About Our Leading SaaS Management Platform</div>
+                <div class="wysiwyg">
+                    <p>It’s time to discover, optimize, and govern your SaaS portfolio. Your journey
+                        to smarter and simpler SaaS Management starts here. Book your demo today and see how you can:
+                    </p>
+                    <ul>
+                        <li>Discover all of your SaaS</li>
+                        <li>Optimize your SaaS subscriptions and licenses</li>
+                        <li>Take control of your renewals</li>
+                        <li>Ensure SaaS compliance</li>
+                        <li>Empower your employees with the tools they need</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-right-side">
+
+                <div class="wrapper">
+                    <h2>Contact Us</h2>
+                    <form action="#" method="post">
+                      {% csrf_token %}
+                      <div class="input-box">
+                        <label class="custom-field one">
+                         {{form.first_name}}
+                         
+                          <span class="placeholder">First Name</span>
+                        </label>
+                      </div>
+                      <div class="input-box">
+                        <label class="custom-field one">
+                         {{form.last_name}}
+                         
+                          <span class="placeholder">Last Name</span>
+                        </label>
+                      </div>
+                      <div class="input-box">
+                        <label class="custom-field one">
+                          {{form.email}}
+                
+                          <span class="placeholder">Enter your email</span>
+                        </label>
+                        <!-- <input type="text" placeholder="Enter your email" required> -->
+                      </div>
+                      
+                      <div class="input-box">
+                        <label class="custom-field one">
+                    
+                         {{form.subject}}
+                          <span class="placeholder">Subject</span>
+                        </label>
+                      </div>
+                     
+                     
+                      <!-- <div class="input-box button"> -->
+                        <input type="Submit" class="button button-small anchor" style="margin-bottom: 15px" value="Register Now">
+                        <!-- <a href="/" class="button button-small anchor" style="margin-bottom: 15px">Register Now</a> -->
+                      <!-- </div> -->
+                     
+                    </form>
+                  </div>
+            </div>
+        </div>
+
+
+
+</section>
+{% endblock content %}
+
+{% block js %}
+  <script src="{% static 'js/contact.js' %}"></script>
+{% endblock js %}
