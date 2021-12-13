@@ -98,3 +98,5 @@ textarea{
     min-height: 44.9px !important;
     border: 1.5px solid #ddd;
 }
+
+.custom-field.one input{min-width: 360px !important}

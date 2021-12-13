@@ -208,10 +208,10 @@ def contact(request):
         form = ContactUsForm()
     else:
         form= ContactUsForm(data=request.POST)
-
         if form.is_valid():
+     
             form.save()
-
             return redirect("home")
+
     context={"form":form}
     return render(request, "pages/contact.html",context)

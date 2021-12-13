@@ -66,7 +66,7 @@ class applicantInternship(forms.Form):
 
 
 
-class ContactUsForm(forms.Form):
+class ContactUsForm(forms.ModelForm):
       first_name = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
       last_name = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
       email = forms.CharField(
@@ -75,4 +75,4 @@ class ContactUsForm(forms.Form):
       subject =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px; max-width:521px;max-height: 70px","name":"email","id":"textareainput"}))
       class Meta:
          model=ContactUs
-         fields = "__all__"
+         fields = ["first_name","last_name","email","subject"]
