@@ -111,29 +111,32 @@ class InternshipDet(generic.DetailView):
     template_name="pages/internshipDet.html"
     def get_context_data(self,**kwargs):
         internships=Internships.objects.all()
-        savedInternships= WishInternship.objects.filter(user=self.request.user)
-        arrayinternships=[]
-        dataInternship = super().get_context_data(**kwargs)
-        internship = super().get_context_data(**kwargs)
-        
-        dataInternship["internshipSaved"]= WishInternship.objects.all().filter(internship=self.object.pk)
-        # total["products"]=internships.objects.all()
-        
-        for  intnum,intship in enumerate(internships):
-        
-            try:
-                str(intship) == str(savedInternships[intnum])
-                flagSavedInternship = "exist"
-                
-            except:
-                flagSavedInternship = False
+        try:
+            savedInternships= WishInternship.objects.filter(user=self.request.user)
+            arrayinternships=[]
+            dataInternship = super().get_context_data(**kwargs)
+            internship = super().get_context_data(**kwargs)
             
+            dataInternship["internshipSaved"]= WishInternship.objects.all().filter(internship=self.object.pk)
+            # total["products"]=internships.objects.all()
+            
+            for  intnum,intship in enumerate(internships):
+            
+                try:
+                    str(intship) == str(savedInternships[intnum])
+                    flagSavedInternship = "exist"
+                    
+                except:
+                    flagSavedInternship = False
+                
 
-            dataInternship["saved"]= flagSavedInternship
+                dataInternship["saved"]= flagSavedInternship
 
-            if self.request.user.is_authenticated:
-                dataInternship["username"]= self.request.user.username
-                dataInternship["email"] = self.request.user.email
+                if self.request.user.is_authenticated:
+                    dataInternship["username"]= self.request.user.username
+                    dataInternship["email"] = self.request.user.email
+        except:
+            print("user unauth")
 
        
         if self.request.method != "POST":

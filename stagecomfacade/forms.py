@@ -39,7 +39,7 @@ class RegisterForm(UserCreationForm):
     )
     studentCheck= forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"studentReg"}))
     companyCheck=  forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"companyReg"}))
-  
+   
     class Meta:
         model=User
         fields=["username","email","password1","password2","studentCheck","companyCheck"]
