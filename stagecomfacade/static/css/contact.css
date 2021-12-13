@@ -56,12 +56,13 @@
     font-size: 3.7rem;
     font-weight:600;
 }
-
+.wysiwyg{padding-left: 15px;}
 .wysiwyg p {
     font-weight: 400;
     font-size: 18px;
     margin: 0 0 1rem;
     color: #696e7a;
+    
 }
 .wysiwyg ol, .wysiwyg ul {
     line-height: 1;
@@ -100,3 +101,34 @@ textarea{
 }
 
 .custom-field.one input{min-width: 360px !important}
+
+
+@media screen and (max-width: 800px) {
+    .title-secondary{
+        font-size:24px !important
+    }
+    .wysiwyg p{
+        font-size:16px !important;
+    }
+    .wysiwyg ol li, .wysiwyg ul li{
+        font-size:14px !important
+    }
+    .custom-field.one input {
+        min-width: 230px !important;
+        width:230px
+    }
+    textarea{
+        min-width: 229.9px !important;
+        max-width: 230px !important;
+        max-height: 45px !important;
+        min-height: 44.9px !important;
+        border: 1.5px solid #ddd;
+    }
+      .contact-container{
+          flex-direction: column !important;
+      }
+    .contact-left-side, .contact-right-side{
+        width:100% !important;
+    }
+
+}

@@ -795,7 +795,33 @@ section{
 
 }
   @media screen and (max-width: 800px) {
-    
+    .blog-listing-posts-item{
+        margin: 15px !important;
+    }
+    .section-suggested{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .title-3, .sajari-results-list ol li h3, .section-rich-text h3{
+        font-size:18px !important;
+    }
+    .flex{
+        flex-direction:column
+    }
+    .section-suggest{
+        width: 390px !important
+    }
+    .title-2, .section-rich-text h2{font-size: 30px !important;}
+    .resource-block-item img{
+        height: 15rem !important;
+    }
+    .blog-listing-posts-item-image {
+        margin-left: 20% !important;
+        margin-bottom: 9px !important;
+        max-width: 60% !important;
+        width: 60% !important;
+    }
       .inputfile[type="file"]{
         min-width: 300px !important;
       }
