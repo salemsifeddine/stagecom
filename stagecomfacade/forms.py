@@ -53,16 +53,16 @@ class Newsletter(forms.Form):
       fields=["emailnewsletter"]
 
 
-class applicantInternship(forms.Form):
+class ApplicantInternship(forms.Form):
       username = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
       email = forms.CharField(
        widget=forms.EmailInput(attrs={'placeholder': ' ',"name":"email","id":"EmailUser"})
       )
-      circulumvitae = forms.FileField(max_length=63,  widget=forms.FileInput(attrs={"class":"inputfile","style":"font-size: 14px;padding-top:5px"}))
+      circulumvitae = forms.FileField( widget=forms.FileInput(attrs={"class":"inputfile","style":"font-size: 14px;padding-top:5px"}))
       motivationLetter =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px; max-width:521px;max-height: 70px","name":"email","id":"textareainput"}))
       class Meta:
-         model=InternshipsApplicant
-         fields = "__all__"
+         model=ApplicationsInt
+         fields = ["username", "email","circulumvitae","motivationLetter"]
 
 
 

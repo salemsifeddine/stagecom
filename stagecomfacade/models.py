@@ -75,12 +75,12 @@ class ContactUs(models.Model):
 
     
     
-class applicationsInt(models.Model):
+class ApplicationsInt(models.Model):
     username=models.CharField(max_length=255)
     email= models.EmailField(max_length=254)
-    internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
-    user= models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
-    motivationLetter = models.TextField(blank=False)
+    circulumvitae = models.FileField(upload_to="files")
+    motivationLetter = models.TextField(blank=True)
+    # internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
 
     def __str__(str):
         return f"internship Applicant"

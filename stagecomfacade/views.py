@@ -11,6 +11,9 @@ from .forms import *
 from django.views import generic
 import json
 from django.http import JsonResponse
+from django.views.generic.edit import FormMixin
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.utils.decorators import method_decorator
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -81,12 +84,13 @@ def courses(request):
 def internships(request):
     
     internships=Internships.objects.all()
-    savedInternships= WishInternship.objects.filter(user=request.user)
+    savedInternships=[]
     saveArray=[]
     arrayinternships=[]
     for  intnum,intship in enumerate(internships):
         
         try:
+            savedInternships= WishInternship.objects.filter(user=request.user)
             str(intship) == str(savedInternships[intnum])
             flagSavedInternship = "exist"
             
@@ -105,19 +109,78 @@ def internships(request):
     context={"title":"Internships" ,"internships":arrayinternships, "wishInternships":savedInternships}
     return render(request, "pages/internships.html",context)
 
-class InternshipDet(generic.DetailView):
+# class InternshipDet(generic.DetailView):
     
+    
+#     def get_context_data(self,**kwargs):
+#         internships=Internships.objects.all()
+#         try:
+#             savedInternships= WishInternship.objects.filter(user=self.request.user)
+#             arrayinternships=[]
+#             dataInternship = super().get_context_data(**kwargs)
+#             internship = super().get_context_data(**kwargs)
+            
+#             dataInternship["internshipSaved"]= WishInternship.objects.all().filter(internship=self.object.pk)
+#             # total["products"]=internships.objects.all()
+            
+#             for  intnum,intship in enumerate(internships):
+            
+#                 try:
+#                     str(intship) == str(savedInternships[intnum])
+#                     flagSavedInternship = "exist"
+                    
+#                 except:
+#                     flagSavedInternship = False
+                
+
+#                 dataInternship["saved"]= flagSavedInternship
+
+#                 if self.request.user.is_authenticated:
+#                     dataInternship["username"]= self.request.user.username
+#                     dataInternship["email"] = self.request.user.email
+#         except:
+#             print("user unauth")
+
+       
+#         if self.request.method != "POST":
+#             form=applicantInternship()
+#             dataInternship["form"]=form
+#         else:
+#             form=applicantInternship(data=self.request.POST)
+#             dataInternship["form"]=form
+#             if form.is_valid():
+                
+#                 formcommited= form.save(commit=False)
+#                 formcommited.internship = Internships.objects.all().filter(internship=self.object.pk)
+#                 formcommited.user = self.request.user
+
+#                 formcommited.save()
+#                 return redirect('home')
+#         # if self.request.user.is_authenticated:
+#         return dataInternship
+
+# @method_decorator(csrf_exempt, name='dispatch')
+class InternshipDet(FormMixin,generic.DetailView):
     model=Internships
+    form_class=ApplicantInternship
     template_name="pages/internshipDet.html"
+    success_url = '/'
+  
+
     def get_context_data(self,**kwargs):
         internships=Internships.objects.all()
-        try:
+        internship = super().get_context_data(**kwargs)
+        dataInternship = super().get_context_data(**kwargs)
+        dataInternship["object"]=Internships.objects.get(id=self.object.pk)
+
+        if self.request.user.is_authenticated:
             savedInternships= WishInternship.objects.filter(user=self.request.user)
             arrayinternships=[]
-            dataInternship = super().get_context_data(**kwargs)
+            
             internship = super().get_context_data(**kwargs)
             
             dataInternship["internshipSaved"]= WishInternship.objects.all().filter(internship=self.object.pk)
+            
             # total["products"]=internships.objects.all()
             
             for  intnum,intship in enumerate(internships):
@@ -132,31 +195,40 @@ class InternshipDet(generic.DetailView):
 
                 dataInternship["saved"]= flagSavedInternship
 
-                if self.request.user.is_authenticated:
-                    dataInternship["username"]= self.request.user.username
-                    dataInternship["email"] = self.request.user.email
-        except:
+                
+                dataInternship["username"]= self.request.user.username
+                dataInternship["email"] = self.request.user.email
+        else:
             print("user unauth")
 
-       
-        if self.request.method != "POST":
-            form=applicantInternship()
-            dataInternship["form"]=form
-        else:
-            form=applicantInternship(data=self.request.POST)
-            dataInternship["form"]=form
-            if form.is_valid():
-                
-                formcommited= form.save(commit=False)
-                formcommited.internship = Internships.objects.all().filter(internship=self.object.pk)
-                formcommited.user = self.request.user
-
-                formcommited.save()
-                return redirect('home')
-        # if self.request.user.is_authenticated:
         return dataInternship
 
+    def post(self, request, *args, **kwargs):
+ 
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            # form.internship = Internships.objects.get(id=self.object.pk)
+            print("form valid")
+            return self.form_valid(form)
+        else:
+            print("form invalid")
+            return self.form_invalid(form)
+   
 
+    def form_valid(self, form):
+      
+        username = form.cleaned_data["username"]
+        email = form.cleaned_data["email"]
+        circulumvitae = form.cleaned_data["circulumvitae"]
+        motivationLetter = form.cleaned_data["motivationLetter"]
+        
+        
+        # dateadded=datetime.datetime.today()
+        # edition=Internships.objects.get(title=self.object.title).edition
+        
+            
+        return super(InternshipDet, self).form_valid(form)   
 
 
 def saveInternship(request):
