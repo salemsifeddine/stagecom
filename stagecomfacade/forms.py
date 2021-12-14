@@ -25,24 +25,27 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(
+
+   username = forms.CharField(
        widget=forms.TextInput(attrs={'placeholder': ' ',"name":"username"})
-    )
-    email = forms.CharField(
+   )
+   email = forms.CharField(
        widget=forms.EmailInput(attrs={'placeholder': ' ',"name":"email"})
-    )
-    password1 = forms.CharField(
+   )
+   password1 = forms.CharField(
        widget=forms.PasswordInput(attrs={'placeholder': ' ',"name":"password1"})
-    )
-    password2 = forms.CharField(
+   )
+   password2 = forms.CharField(
        widget=forms.PasswordInput(attrs={'placeholder': ' ',"name":"password2"})
-    )
-    studentCheck= forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"studentReg"}))
-    companyCheck=  forms.ChoiceField(widget=forms.CheckboxInput(attrs={"id":"companyReg"}))
-   
-    class Meta:
+   )
+
+   class Meta:
         model=User
-        fields=["username","email","password1","password2","studentCheck","companyCheck"]
+        fields=["username","email","password1","password2"]
+   # def __init__(self, *args, **kwargs):
+   #      super(RegisterForm, self).__init__(*args, **kwargs)
+   #      self.fields['studentCheck'].required = False
+   #      self.fields['companyCheck'].required = False
 
 class Newsletter(forms.Form):
 
@@ -61,8 +64,9 @@ class ApplicantInternship(forms.ModelForm):
       circulumvitae = forms.FileField( widget=forms.FileInput(attrs={"class":"inputfile","style":"font-size: 14px;padding-top:5px"}))
       motivationLetter =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px; max-width:521px;max-height: 70px","name":"email","id":"textareainput"}))
       class Meta:
-         model=ApplicationsInt
+         model=InternshipsApplicant
          fields = ["username", "email","circulumvitae","motivationLetter"]
+      
 
 
 

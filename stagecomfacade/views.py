@@ -14,6 +14,7 @@ from django.http import JsonResponse
 from django.views.generic.edit import FormMixin
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.utils.decorators import method_decorator
+import  time
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -22,6 +23,7 @@ def  home(request):
     return render(request, "pages/home.html",context)
 
 def register(request):
+    logged=False
     
     if request.method != "POST":
         form=RegisterForm()
@@ -35,12 +37,25 @@ def register(request):
             usernamereg=form.cleaned_data.get("username")
             emailreg=form.cleaned_data.get("email")
             passwordreg=form.cleaned_data.get("password1")
+            typeuser=request.POST.getlist('typeuser')[0]
+            
 
             form.save()
             new_user = authenticate(username=usernamereg,password=passwordreg)
             if new_user is not None:
-
                 auth_login(request,new_user)
+                logged=True
+               
+            if logged:
+                if typeuser == "Company":
+                    comp, created = Company.objects.get_or_create(company=new_user, description="")
+                    print("company created succesfully")
+                elif typeuser == "Student":
+                    stu, created = Student.objects.get_or_create(student=new_user)
+                    print("Student created succesfully")       
+
+
+                
             
             
             return redirect('home')
@@ -82,6 +97,14 @@ def courses(request):
     return render(request, "pages/courses.html",context)
 
 def internships(request):
+    company=False
+    student=False
+    try:
+        Company.objects.get(company=request.user)
+        company = True
+    except:
+        student =True
+
     
     internships=Internships.objects.all()
     savedInternships=[]
@@ -106,7 +129,8 @@ def internships(request):
     
     
 
-    context={"title":"Internships" ,"internships":arrayinternships, "wishInternships":savedInternships}
+    context={"title":"Internships" ,"internships":arrayinternships, "wishInternships":savedInternships,
+    "company":company,"student":student}
     return render(request, "pages/internships.html",context)
 
 # class InternshipDet(generic.DetailView):
@@ -173,6 +197,7 @@ class InternshipDet(FormMixin,generic.DetailView):
         dataInternship = super().get_context_data(**kwargs)
         dataInternship["object"]=Internships.objects.get(id=self.object.pk)
 
+        
         if self.request.user.is_authenticated:
             savedInternships= WishInternship.objects.filter(user=self.request.user)
             arrayinternships=[]
@@ -223,8 +248,15 @@ class InternshipDet(FormMixin,generic.DetailView):
         circulumvitae = form.cleaned_data["circulumvitae"]
         motivationLetter = form.cleaned_data["motivationLetter"]
         print(username,email,circulumvitae,motivationLetter)
-        applicant, created= ApplicationsInt.objects.get_or_create(username=username, email=email,
-        circulumvitae=circulumvitae,motivationLetter=motivationLetter)
+        try:
+            applicant, created= InternshipsApplicant.objects.get_or_create(username=username, email=email,
+            internship=Internships.objects.get(id=self.object.pk),user=self.request.user,
+            circulumvitae=circulumvitae,motivationLetter=motivationLetter)
+        except:
+            applicant, created= InternshipsApplicant.objects.get_or_create(username=username, email=email,
+            internship=Internships.objects.get(id=self.object.pk),user=None,
+            circulumvitae=circulumvitae,motivationLetter=motivationLetter)
+
         
         
         # dateadded=datetime.datetime.today()

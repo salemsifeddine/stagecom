@@ -8,7 +8,8 @@ admin.site.register(WishInternship)
 admin.site.register(InternshipsApplicant)
 admin.site.register(Blog)
 admin.site.register(ContactUs)
-admin.site.register(ApplicationsInt)
+admin.site.register(Company)
+admin.site.register(Student)
 
 ####################################
 

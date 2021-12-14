@@ -130,3 +130,17 @@ savebtninternship.addEventListener("click",function(){
     
 })
 
+
+
+
+// 
+$("#file-upload").css("opacity", "0");
+
+$("#file-browser").click(function(e) {
+  e.preventDefault();
+  $("#file-upload").trigger("click");
+});
+
+document.getElementById("file-browser").addEventListener("click",function(){
+    document.getElementById("fileuploadImageBack").click()
+})

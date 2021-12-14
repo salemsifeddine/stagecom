@@ -39,7 +39,7 @@ class InternshipsApplicant(models.Model):
     username=models.CharField(max_length=255)
     email= models.EmailField(max_length=254)
     internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
-    user= models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
+    user= models.ForeignKey(User,blank=True,null=True, on_delete=models.CASCADE)
     circulumvitae = models.FileField()
     motivationLetter = models.TextField(blank=False)
 
@@ -74,18 +74,20 @@ class ContactUs(models.Model):
         return f"{self.first_name} contact"
 
     
+class Company(models.Model):
+    company=models.ForeignKey(User,blank=False,on_delete=models.CASCADE)
+    description=models.TextField(blank=True)
+    image=models.ImageField(upload_to="company_image",blank=True)
     
-class ApplicationsInt(models.Model):
-    username=models.CharField(max_length=255)
-    email= models.EmailField(max_length=254)
-    circulumvitae = models.FileField(upload_to="files")
-    motivationLetter = models.TextField(blank=True)
-    # internship = models.ForeignKey(Internships, blank=False, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.company}"
 
-    def __str__(str):
-        return f"internship Applicant"
+class Student(models.Model):
+    student=models.ForeignKey(User,blank=False,on_delete=models.CASCADE)
+    image=models.ImageField(upload_to="student_image",blank=True,null=True)
 
-
+    def __str__(self):
+        return f"{self.student}"
 
 
 
