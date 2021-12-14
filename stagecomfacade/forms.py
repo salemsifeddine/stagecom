@@ -53,7 +53,7 @@ class Newsletter(forms.Form):
       fields=["emailnewsletter"]
 
 
-class ApplicantInternship(forms.Form):
+class ApplicantInternship(forms.ModelForm):
       username = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'id': 'usernameUser','placeholder': ' ',"name":"username"}))
       email = forms.CharField(
        widget=forms.EmailInput(attrs={'placeholder': ' ',"name":"email","id":"EmailUser"})

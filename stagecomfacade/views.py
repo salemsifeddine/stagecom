@@ -217,11 +217,14 @@ class InternshipDet(FormMixin,generic.DetailView):
    
 
     def form_valid(self, form):
-      
+       
         username = form.cleaned_data["username"]
         email = form.cleaned_data["email"]
         circulumvitae = form.cleaned_data["circulumvitae"]
         motivationLetter = form.cleaned_data["motivationLetter"]
+        print(username,email,circulumvitae,motivationLetter)
+        applicant, created= ApplicationsInt.objects.get_or_create(username=username, email=email,
+        circulumvitae=circulumvitae,motivationLetter=motivationLetter)
         
         
         # dateadded=datetime.datetime.today()
