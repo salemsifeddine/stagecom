@@ -1,26 +1,3 @@
-var wrapperparrent = document.querySelector(".wrapper-parent");
-
-var wrapperDiv = document.getElementById("wrapperdiv")
-if(document.querySelector(".concelbtn")){
-    var concelbtn = document.querySelector(".concelbtn");
-    
-
-    concelbtn.addEventListener("click",function(e){
-        
-
-    
-        $(".wrapper-parent").fadeOut(500)
-        setTimeout(() => {
-            wrapperDiv.style.transform = "translate(0,-25%)"
-        }, 200);
-        
-        
-
-    })
-
-}
-
-
 
 
 if(document.getElementById("btnapply")){
@@ -143,4 +120,89 @@ $("#file-browser").click(function(e) {
 
 document.getElementById("file-browser").addEventListener("click",function(){
     document.getElementById("fileuploadImageBack").click()
+})
+
+// great form 
+
+
+function init(count) {
+    // Generate li foreach fieldset
+    for (var iii= 0; iii < count; iii++){
+        var li = document.createElement("li");
+  
+        document.querySelector('.items').appendChild(li);
+    }
+    // Add class active on first li
+    document.querySelector('.items').children[0].classList.add('active');
+
+  }
+  
+  function next(target) {
+    var input = target.previousElementSibling;
+    
+    // Check if input is empty
+    if (input.value === '') {
+      body.classList.add('error');
+    } else {
+      body.classList.remove('error');
+      
+      var enable = document.querySelector('form fieldset.enable'),
+          nextEnable = enable.nextElementSibling;
+      enable.classList.remove('enable');
+      enable.classList.add('disable');
+      nextEnable.classList.add('enable');
+      
+      // Switch active class on left list
+      var active = document.querySelector('ul.items li.active'),
+          nextActive = active.nextElementSibling;
+      active.classList.remove('active');
+      nextActive.classList.add('active');
+    }
+  }
+  
+  function keyDown(event) {
+    var key = event.keyCode,
+        target = document.querySelector('fieldset.enable .buttondown');
+    if (key == 13 || key == 9) next(target);
+  }
+  
+  var body = document.querySelector('body'),
+      form = document.querySelector('.form-internship form'),
+      count = form.querySelectorAll('fieldset').length;
+      var ul = document.querySelector('.items')
+      
+    //  
+
+    window.addEventListener("load",function(){
+        init(count);
+        
+    })
+ 
+
+
+  document.body.onmouseup = function (event) {
+      var target = event.target || event.toElement;
+      if (target.classList.contains("buttondown")) next(target);
+  };
+  document.addEventListener("keydown", keyDown, false);
+  
+  
+// on click on br 
+document.querySelector(".br").addEventListener("click",function(){
+    $(".form-internship").fadeIn(150)
+    $(".form-internship").animate({"height":100 + "vh"},500)
+    $(".form-internship form").fadeIn(600)
+})
+
+document.querySelector(".form-internship").addEventListener("click",function(){
+    // $(".form-internship form").animate({"width":0,"height":0},300)
+    // $(".form-internship").animate({"width":0 + "%"},500)
+    $(".form-internship form").hide(200)
+    $(".form-internship").fadeOut(300)
+})
+
+document.querySelector(".form-internship form").addEventListener("click",function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("Select")
 })

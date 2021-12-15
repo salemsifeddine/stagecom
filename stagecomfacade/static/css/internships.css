@@ -415,6 +415,7 @@ section{
     max-width: 640px;
     padding-top: 60px;
     text-align: center;
+    display:none;
   }
   
   .container2 {
@@ -427,7 +428,7 @@ section{
    
             }
   
-  h1 {
+  .container2 h3 {
     color: #130f40;
     font-family: 'Varela Round', sans-serif;
     letter-spacing: -.5px;
@@ -481,4 +482,446 @@ section{
       height:100%;
       position:absolute;
       opacity: 0;
+  }
+
+  /* add btn */
+
+  
+.add-button {
+    position: absolute;
+    right:70px;
+    bottom: 50px;
+    width: 56px;
+    height: 56px;
+    overflow: visible;
+    -webkit-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+      color 0s ease .4s,font-size .2s;
+    -moz-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+      color 0s ease .4s,font-size .2s;
+    transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+      color 0s ease .4s,font-size .2s;
+    text-align: center;
+    line-height: 56px;
+    font-size: 28px;
+    color: rgba(255,255,255,1);
+  }
+  
+  .add-button:before {
+    position: relative;
+    z-index: 100;
+    content:"+";
+    
+  }
+  
+  
+  
+  .add-button:hover {
+   
+    color: rgba(255,255,255,0);
+    transform: rotate(45deg);
+  }
+  
+  .sub-button {
+    position: absolute;
+    display: inline-block;
+    background-color:#ff4081;
+    color: rgba(255,255,255,0);
+    width: 28px;
+    height: 28px;
+    line-height:48px;
+    font-family: "FontAwesome";
+    font-size: 12px;
+    -webkit-transition: top .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      left .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      bottom .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      right .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      width .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      height .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      transform .1s ease 0s,
+      border-radius .2s  ease .2s;
+     -moz-transition: top .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      left .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      bottom .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      right .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      width .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      height .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      transform .1s ease 0s,
+      border-radius .2s  ease .2s;
+     transition: top .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      left .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      bottom .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      right .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      width .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      height .2s cubic-bezier(.58,-0.37,.45,1.46) .2s,
+      transform .1s ease 0s,
+      border-radius .2s  ease .2s;
+  }
+  
+  .tl {
+    top: 0;
+    left: 0;
+    border-radius: 28px 0 0 0;
+  }
+  
+  .tr {  
+    top: 0;
+    right: 0;
+    border-radius: 0 28px 0 0;
+  }
+  
+  .bl {
+    bottom: 0;
+    left: 0; 
+    border-radius: 0 0 0 28px;
+  }
+  
+  .br { 
+    bottom: 0;
+    right: 0;
+    border-radius: 0 0 28px 0;
+  }
+  
+  
+  /* .tl:before {
+    content:"";
+  }
+  
+  .tr:before {
+    content:"";
+  } */
+  
+  .bl:before {
+    font-family: sans-serif;
+    content:"unpaied";
+  }
+  
+  .br:before {
+      font-family: sans-serif;
+    content:"paied";
+  }
+  
+  
+  .add-button:hover .sub-button {
+    width: 48px;
+    height: 48px;
+    transform: rotate(-45deg);
+    
+    color: rgba(255,255,255,1);
+    -webkit-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      color .3s ease .8s,
+      transform .3s ease .8s,
+      border-radius .4s  ease .6s;
+     -moz-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      color .3s ease .8s,
+      transform .3s ease .8s,
+      border-radius .4s  ease .6s;
+     transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+      color .3s ease .8s,
+      transform .3s ease .8s,
+      border-radius .4s  ease .6s;
+  }
+  
+  .add-button:hover .tl {
+    top: -25px;
+    left: -25px;
+    border-radius: 28px;
+  }
+  
+  .add-button:hover .tr {  
+    top: -25px;
+    right: -25px;
+    border-radius: 28px;
+  }
+  
+  .add-button:hover .bl {
+    bottom: -25px;
+    left: -25px; 
+    border-radius: 28px;
+  }
+  
+  .add-button:hover .br { 
+    bottom: -25px;
+    right: -25px;
+    border-radius: 28px;
+  }
+
+
+  /* great form  */
+
+
+  
+body fieldset {
+    box-shadow: 0 6px 8px #5361FF;
+  }
+  
+  body.error {
+    background: #f04000;
+  }
+  body.error fieldset {
+    box-shadow: 0 8px 10px #bd3200;
+  }
+  
+  
+  ul.items {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%);
+  }
+  ul.items li {
+    width: 8px;
+    height: 8px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.4;
+    cursor: pointer;
+    list-style: none;
+  }
+  ul.items li.active {
+    opacity: 1;
+  }
+  .form-internship{
+      width: 100%;
+      height:0vh;
+      position: fixed;
+      background-color: #7b7b7b91;
+      z-index: 99999999999999999999;
+      display: none;
+  }
+  
+  .form-internship form {
+    position: absolute;
+    width: 450px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+  }
+  .form-internship form fieldset {
+    position: absolute;
+    width: 450px;
+    height: 60px;
+    background: white;
+    border-radius: 3px;
+    opacity: 0;
+    transform: scale(0.2);
+    transition: all 0.4s ease-in-out;
+  }
+  .form-internship form fieldset input, form fieldset p {
+    display: inline-block;
+    width: 200px;
+    margin-left: 50px;
+    color: #333333;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .form-internship form fieldset p {
+    margin-top: 22px;
+    text-align: center;
+  }
+  .form-internship form fieldset input {
+    height: 40px;
+    margin-top: 8px;
+    border: none;
+    outline: none;
+    background:transparent !important;
+  }
+  .form-internship form fieldset .icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    transition: all 0.4s ease;
+  }
+  .form-internship form fieldset .icon i {
+    position: absolute;
+    display: block;
+  }
+  .form-internship form fieldset .icon input{
+    background: transparent !important;
+  }
+  .form-internship form fieldset .icon i::before, form fieldset .icon i::after {
+    position: absolute;
+    content: "";
+  }
+  .form-internship form fieldset .icon.left {
+    left: 10px;
+  }
+  .form-internship form fieldset .icon.right {
+    right: 10px;
+    cursor: pointer;
+  }
+  .form-internship form fieldset .icon.button:hover {
+    background: #f2f2f2;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+  }
+  .form-internship form fieldset.enable {
+    z-index: 1;
+    opacity: 1;
+    transition: all 0.5s ease-out 0.2s;
+    transform: scale(1);
+    animation: enable 0.5s ease-out 0.2s;
+  }
+  .form-internship form fieldset.disable {
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    transform: translateY(120px) scale(0.9);
+  }
+  
+  body.error fieldset {
+    transform-origin: 50% 100%;
+    animation: error 0.3s ease-out;
+  }
+  
+  @keyframes enable {
+    0% {
+      opacity: 0;
+      transform: scale(0.2);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes error {
+    0%, 50%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+  }
+  /**
+   * * Icons in CSS, long as f****
+   * */
+  .icon .arrow {
+    width: 2px;
+    height: 17px;
+    top: 5px;
+    left: 14px;
+    background: #333333;
+  }
+  .icon .arrow::before {
+    width: 6px;
+    height: 6px;
+    bottom: -1px;
+    left: -3px;
+    border-color: #333333;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(45deg);
+  }
+  
+  .icon .user {
+    width: 20px;
+    height: 10px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 6px 6px 3px 3px;
+  }
+  .icon .user::before {
+    width: 10px;
+    height: 10px;
+    top: -9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 50%;
+  }
+  
+  .icon .letter {
+    width: 20px;
+    height: 12px;
+    top: 9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 3px;
+  }
+  .icon .letter::before, .icon .letter::after {
+    width: 11px;
+    height: 2px;
+    top: 4px;
+    background: #333333;
+  }
+  .icon .letter::before {
+    left: 0;
+    transform: rotate(30deg);
+  }
+  .icon .letter::after {
+    right: 0;
+    transform: rotate(-30deg);
+  }
+  
+  .icon .lock {
+    width: 20px;
+    height: 16px;
+    top: 9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 3px;
+  }
+  .icon .lock::before {
+    width: 8px;
+    height: 8px;
+    top: -4px;
+    left: 4px;
+    border: 2px solid transparent;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+  }
+  .icon .lock::after {
+    width: 6px;
+    height: 7px;
+    top: 4px;
+    left: 7px;
+    box-shadow: 0 0 0 2px #333333 inset;
+  }
+  
+  .icon .heart {
+    width: 10px;
+    height: 10px;
+    top: 11px;
+    left: 7px;
+    background: #ff5233;
+    transform: rotate(45deg);
+  }
+  .icon .heart::before, .icon .heart::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5233;
+  }
+  .icon .heart::before {
+    left: -6px;
+  }
+  .icon .heart::after {
+    top: -6px;
   }

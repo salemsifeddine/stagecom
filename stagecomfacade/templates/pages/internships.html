@@ -139,18 +139,18 @@
 </section>
 
   {% if company %}
-  <div class="wrapper2">
+  <div class="wrapper2" id="imageinsternshipuploaderCont">
     
     <div class="container2">
       
-      <h1>Upload a Background Image for your Internship</h1>
+      <h3>Upload a Background Image for your Internship</h3>
       <div class="upload-container">
         <div class="border-container">
           <div class="icons fa-4x">
             <input type="file" id="fileuploadImageBack">
             <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
-            <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
-            <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+            <!-- <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+            <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i> -->
           </div>
           <!--<input type="file" id="file-upload">-->
           <p>Drag and drop files here, or 
@@ -159,6 +159,45 @@
       </div>
     </div>
   </div>
+
+  <!-- add btn -->
+  <div class="add-button">
+    <div class="sub-button tl"></div>
+    <div class="sub-button tr"></div>
+    <a href="#unpaied" title="unpaied internship"><div class="sub-button bl"></div></a>
+    <a href="#paied" title="paied internship"><div class="sub-button br"></div></a>
+  </div>
+
+
+  <!-- great form -->
+<div class="form-internship">
+  
+  <form>
+    <ul class="items">
+      
+    </ul>
+    <fieldset class="username enable">
+      <div class="icon left"><i class="user"></i></div>
+      <input type="text" name="username" placeholder="Username"/>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
+    </fieldset>
+    <fieldset class="email">
+      <div class="icon left"><i class="letter"></i></div>
+      <input type="mail" name="email" placeholder="Email"/>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
+    </fieldset>
+    <fieldset class="password">
+      <div class="icon left"><i class="lock"></i></div>
+      <input type="password" name="password" placeholder="Password"/>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
+    </fieldset>
+    <fieldset class="thanks">
+      <div class="icon left"><i class="heart"></i></div>
+      <p>Thanks for your time</p>
+      <div class="icon right"><i class="heart"></i></div>
+    </fieldset>
+  </form>
+</div>
   {% else %}
     <span>Student</span>
   {% endif %}
