@@ -80,3 +80,9 @@ class ContactUsForm(forms.ModelForm):
       class Meta:
          model=ContactUs
          fields = ["first_name","last_name","email","subject"]
+
+
+class InternshipForm(forms.ModelForm):
+    class Meta:
+        model=Internships
+        fields="__all__"

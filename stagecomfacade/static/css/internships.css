@@ -728,7 +728,7 @@ body fieldset {
   }
   .form-internship form fieldset input, form fieldset p {
     display: inline-block;
-    width: 200px;
+    width: 350px;
     margin-left: 50px;
     color: #333333;
     font-size: 16px;
@@ -924,4 +924,8 @@ body fieldset {
   }
   .icon .heart::after {
     top: -6px;
+  }
+  .fa-paper-plane{
+    font-size: 25px;
+    padding-left: 15px;
   }
