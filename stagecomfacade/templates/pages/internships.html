@@ -170,40 +170,60 @@
 
 
   <!-- great form -->
-<div class="form-internship">
+<div class="form-internship" >
   
-  <form>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
     <ul class="items">
 
     </ul>
     <fieldset class="username enable">
-      <div class="icon left"><i class="user"></i></div>
-      <input type="text" name="username" placeholder="Title"/>
-      <div class="icon right buttondown"><i class="arrow"></i></div>
+      <div class="icon left"><i class="fas fa-heading"></i></div>
+      <!-- <input type="text" name="username" placeholder="Title"/> -->
+      {{form.title}}
+      <div class="icon right buttondown"><i class="fas fa-code"></i></div>
     </fieldset>
     <fieldset class="email">
       <div class="icon left"><i class="letter"></i></div>
-      <input type="text" name="email" placeholder="Level"/>
-      <div class="icon right buttondown"><i class="arrow"></i></div>
+      <!-- <input type="text" name="email" placeholder="Level"/> -->
+      {{form.level}}
+      <div class="icon right buttondown"><i class="fas fa-layer-group"></i></div>
     </fieldset>
     <fieldset class="password">
       <div class="icon left"><i class="lock"></i></div>
-      <input type="text" name="password" placeholder="Location"/>
-      <div class="icon right buttondown"><i class="arrow"></i></div>
+      <!-- <input type="text" name="password" placeholder="Location"/> -->
+      {{form.location}}
+      <div class="icon right buttondown"><i class="fas fa-map-marker-alt"></i></div>
     </fieldset>
     <fieldset class="password">
       <div class="icon left"><i class="lock"></i></div>
-      <input type="date" name="password" placeholder="Dead Line"/>
+      <!-- <input type="date" name="password" placeholder="Dead Line"/> -->
+      {{form.datefield}}
       <div class="icon right buttondown"><i class="arrow"></i></div>
+    </fieldset>
+    
+    <fieldset class="password">
+      <div class="icon left"><i class="lock"></i></div>
+      <!-- <input type="text" name="password" placeholder="Description"/> -->
+      {{form.tags}}
+      <div class="icon right buttondown"><i class="fas fa-tags"></i></div>
     </fieldset>
     <fieldset class="password">
       <div class="icon left"><i class="lock"></i></div>
-      <input type="text" name="password" placeholder="Requirements:req1,req2.."/>
+      <!-- <input type="text" name="password" placeholder="Requirements:req1,req2.."/> -->
+      {{form.requirements}}
       <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="password">
-      <div class="icon left"><i class="lock"></i></div>
-      <input type="text" name="password" placeholder="Description"/>
+     
+      <!-- <input type="text" name="password" placeholder="Description"/> -->
+      {{form.description}}
+      <div class="icon right buttondown"><i class="arrow"></i></div>
+    </fieldset>
+    <fieldset class="password">
+      
+      <!-- <input type="text" name="password" placeholder="Description"/> -->
+      {{form.imageFile}}
       <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="password" style="box-shadow: none;background: transparent;">

@@ -82,7 +82,15 @@ class ContactUsForm(forms.ModelForm):
          fields = ["first_name","last_name","email","subject"]
 
 
-class InternshipForm(forms.ModelForm):
+class InternshipForm(forms.Form):
+    title = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Title'}))
+    level = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Level'}))
+    location = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
+    tags = forms.CharField(max_length=63,widget=forms.TextInput(attrs={"placeholder": 'Tags: tag1,tag2..'}))
+    datefield=forms.DateField(widget=forms.DateInput(attrs={"placeholder": 'date',"type":"date"}))
+    imageFile = forms.FileField( widget=forms.FileInput(attrs={"style":"font-size: 14px;padding-top:5px"}))
+    requirements =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
+    description =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
     class Meta:
         model=Internships
         fields="__all__"

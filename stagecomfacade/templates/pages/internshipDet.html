@@ -8,9 +8,11 @@
   <link rel="stylesheet" href="{% static './css/register.css' %}">
   <link rel="stylesheet" href="{% static './css/internships.css' %}">
   <link rel="stylesheet" href="{% static './css/internshipDet.css' %}">
-  <style>
-    .details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}
-  </style>
+  {% if saved == "exist" %}
+            <style>
+        .details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}
+         </style>
+  {% endif %}
   <script>
     let userNm111="{{username}}"
     let userEml11="{{email}}"
@@ -36,9 +38,10 @@
 			  {{object.title}}
 			<span class="hidden-xs"> 
         {% if saved == "exist" %}
+        
         <a class="save-job save-internship added"  data-internship="{{object.id}}" data-toggle="modal"  data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
         {% else %}
-        <a class="save-job save-internship "  data-internship="{{object.id}}" data-toggle="modal"  data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
+        <a class="save-job save-internship"  data-internship="{{object.id}}" data-toggle="modal"  data-id="619828" title="Sauvegarder" data-href="/saved-jobs/?id=619828&amp;action=save&amp;reload=✓" rel="nofollow" href="#"></a>
         {% endif %}
 					</span>
 							</h1>

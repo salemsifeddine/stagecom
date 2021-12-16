@@ -669,10 +669,10 @@ body fieldset {
     box-shadow: 0 6px 8px #5361FF;
   }
   
-  body.error {
-    background: #f04000;
+  .form-internship.error {
+    background: #f04000ad;
   }
-  body.error fieldset {
+  .form-internship.error fieldset {
     box-shadow: 0 8px 10px #bd3200;
   }
   
@@ -788,7 +788,7 @@ body fieldset {
     transform: translateY(120px) scale(0.9);
   }
   
-  body.error fieldset {
+  .form-internship.error fieldset {
     transform-origin: 50% 100%;
     animation: error 0.3s ease-out;
   }

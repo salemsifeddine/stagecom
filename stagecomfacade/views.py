@@ -102,6 +102,8 @@ def internships(request):
     try:
         Company.objects.get(company=request.user)
         company = True
+
+        
     except:
         student =True
 
@@ -125,12 +127,35 @@ def internships(request):
 
         arrayinternships.append(myobject)
 
+    if request.method != "POST":
+            form =InternshipForm()
+    else:
+        form=InternshipForm(request.POST, request.FILES)
+        if form.is_valid():
+            title= form.cleaned_data.get('title')
+            level=form.cleaned_data.get('level')
+            location=form.cleaned_data.get('location')
+            tags=form.cleaned_data.get('tags')
+            datefield=form.cleaned_data.get('datefield')
+            imageFile=form.cleaned_data.get('imageFile')
+            requirements=form.cleaned_data.get('requirements')
+            description=form.cleaned_data.get('description')
 
+            datagiven=Internships(title=title,level=level,company=request.user,location=location,date=datefield,
+                tags=tags,image=imageFile,requirements=requirements,description=description)
+            datagiven.save()
+
+            return redirect("home")
     
     
 
     context={"title":"Internships" ,"internships":arrayinternships, "wishInternships":savedInternships,
     "company":company,"student":student}
+
+    try:
+        context["form"]=form
+    except :
+        print("there is no form")
     return render(request, "pages/internships.html",context)
 
 # class InternshipDet(generic.DetailView):

@@ -18,7 +18,7 @@ class Internships(models.Model):
     level=models.CharField(max_length=100)
     company=models.ForeignKey(User,blank=True,on_delete=models.CASCADE)
     location=models.CharField(max_length=255)
-    date=models.DateTimeField(blank=True)
+    date=models.DateField()
     date_added=models.DateTimeField(auto_now_add=True)
     tags=models.CharField(max_length=255)
     requirements=models.TextField(max_length=255,blank=True)

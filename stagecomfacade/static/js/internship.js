@@ -65,48 +65,51 @@ function InternshipApi(id, action){
     })
 }
 
-var savebtninternship = document.querySelector('.save-internship') 
+if(document.querySelector('.save-internship') ){
+    var savebtninternship = document.querySelector('.save-internship') 
+    
 savebtninternship.addEventListener("click",function(){
 
-        this.classList.toggle("added")
-        if(this.parentNode.classList[0] == "save-course"){
-            var parentdivSave= this.parentNode
-            parentdivSave.classList.toggle("saveinternship")
-        }
-        
-        var wishinternship=this.dataset.internship 
+    this.classList.toggle("added")
+    if(this.parentNode.classList[0] == "save-course"){
+        var parentdivSave= this.parentNode
+        parentdivSave.classList.toggle("saveinternship")
+    }
     
-        if(user == "AnonymousUser"){
-            console.log('not logged')
-        
-        }else{
-            if(this.classList.contains('added')){
-                var styleele = document.createElement("style");
-                var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}")
-                styleele.appendChild(textStyle)
-                document.head.appendChild(styleele)
-    
-                // this.innerHTML = `<i class="fas fa-heart"></i> Remove From WishList`
-                InternshipApi(wishinternship,"addInternship")
-        
-            }else{
-                var styleele = document.createElement("style");
-                var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(255, 255, 255, 0.3)}")
-                styleele.appendChild(textStyle)
-                document.head.appendChild(styleele)
-                // this.innerHTML = `<i class="far fa-heart"></i> Add To WishList`
-                InternshipApi(wishinternship,"removeInternship")
-        
-            }
+    var wishinternship=this.dataset.internship 
 
-        
+    if(user == "AnonymousUser"){
+        console.log('not logged')
+    
+    }else{
+        if(this.classList.contains('added')){
+            var styleele = document.createElement("style");
+            var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(32, 26, 220, 0.3)}")
+            styleele.appendChild(textStyle)
+            document.head.appendChild(styleele)
+
+            // this.innerHTML = `<i class="fas fa-heart"></i> Remove From WishList`
+            InternshipApi(wishinternship,"addInternship")
+    
+        }else{
+            var styleele = document.createElement("style");
+            var textStyle = document.createTextNode(".details-header .save-job::before{background:rgba(255, 255, 255, 0.3)}")
+            styleele.appendChild(textStyle)
+            document.head.appendChild(styleele)
+            // this.innerHTML = `<i class="far fa-heart"></i> Add To WishList`
+            InternshipApi(wishinternship,"removeInternship")
+    
         }
-        
+
     
- 
+    }
     
+
+
+
 })
 
+}
 
 
 
@@ -142,9 +145,9 @@ function init(count) {
     
     // Check if input is empty
     if (input.value === '') {
-      body.classList.add('error');
+      document.querySelector(".form-internship").classList.add('error');
     } else {
-      body.classList.remove('error');
+        document.querySelector(".form-internship").classList.remove('error');
       
       var enable = document.querySelector('form fieldset.enable'),
           nextEnable = enable.nextElementSibling;
@@ -197,12 +200,14 @@ document.querySelector(".br").addEventListener("click",function(){
 document.querySelector(".form-internship").addEventListener("click",function(){
     // $(".form-internship form").animate({"width":0,"height":0},300)
     // $(".form-internship").animate({"width":0 + "%"},500)
+    $(".form-internship").animate({"height":0 + "vh"},300)
     $(".form-internship form").hide(200)
     $(".form-internship").fadeOut(300)
+    
 })
 
 document.querySelector(".form-internship form").addEventListener("click",function(e){
-    e.preventDefault();
+    
     e.stopPropagation();
-    console.log("Select")
+    
 })
