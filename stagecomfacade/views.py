@@ -15,6 +15,7 @@ from django.views.generic.edit import FormMixin
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.utils.decorators import method_decorator
 import  time
+from datetime import date
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -99,6 +100,7 @@ def courses(request):
 def internships(request):
     company=False
     student=False
+    
     try:
         Company.objects.get(company=request.user)
         company = True
@@ -125,7 +127,12 @@ def internships(request):
 
         myobject= {"saved":flagSavedInternship,"intship":intship}
 
-        arrayinternships.append(myobject)
+        if intship.date > date.today():
+            isclosedintsh = intship.is_closed = True
+            
+        if intship.is_closed == False:
+            arrayinternships.append(myobject)
+        
 
     if request.method != "POST":
             form =InternshipForm()
