@@ -13,5 +13,6 @@ urlpatterns = [
     path('internshipApi/',views.saveInternship, name="internshipApi"),
     path('blog/',views.blog, name="blog"),
     path('blogDet/<int:pk>',views.BlogDet.as_view(), name="blogDet"),
-    path('contact',views.contact, name="contact")
+    path('contact',views.contact, name="contact"),
+     path('ajaxreq/', views.ajaxrequest, name='ajaxreq'),
 ]

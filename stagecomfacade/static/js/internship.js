@@ -211,3 +211,32 @@ document.querySelector(".form-internship form").addEventListener("click",functio
     e.stopPropagation();
     
 })
+
+function ajaxrequest(){
+    majorF=document.querySelector(".major")
+    placeF=document.querySelector(".place")
+    countryF=document.querySelector(".tag")
+    $.ajax({
+        type:"get",
+        url: "/ajaxreq/",
+        data: {
+                 'major': majorF.value,
+                 'place': placeF.value,
+                 'tag': countryF.value
+               },
+        success: function(data) {
+            console.log(data)
+           
+           
+            
+                },
+        error: function(){
+                console.log("error");
+             }
+        });
+}
+
+document.querySelector(".marginbtm10").addEventListener("click",function(e){
+    e.preventDefault();
+    ajaxrequest();
+})

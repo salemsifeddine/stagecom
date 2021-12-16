@@ -29,24 +29,25 @@
   
   <div class="wrapper">
     <!-- <h2>Find Your Internship</h2> -->
-    <form action="#">
+    <form method="post">
+      {% csrf_token %}
       <div class="input-box">
         <label class="custom-field one">
-          <input type="text" placeholder=" " >
+          <input type="text" placeholder=" " class="major" name="major">
           <span class="placeholder">Search by major</span>
         </label>
       </div>
       <div class="input-box">
         <label class="custom-field one">
-          <input type="text" placeholder=" ">
+          <input type="text" placeholder=" " class="place" name="place">
           <span class="placeholder">Search by place</span>
         </label>
         <!-- <input type="text" placeholder="Enter your email" required> -->
       </div>
       <div class="input-box">
         <label class="custom-field one">
-          <input type="text" placeholder=" " >
-          <span class="placeholder">Search by country</span>
+          <input type="text" placeholder=" " class="tag" name="tag">
+          <span class="placeholder" >Search by Tag</span>
         </label>
         <!-- <input type="password" placeholder="Create password" required> -->
       </div>
@@ -178,38 +179,38 @@
 
     </ul>
     <fieldset class="username enable">
-      <div class="icon left"><i class="fas fa-heading"></i></div>
+      <!-- <div class="icon left"><i class="fas fa-heading"></i></div> -->
       <!-- <input type="text" name="username" placeholder="Title"/> -->
       {{form.title}}
-      <div class="icon right buttondown"><i class="fas fa-code"></i></div>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="email">
-      <div class="icon left"><i class="letter"></i></div>
+      <!-- <div class="icon left"><i class="letter"></i></div> -->
       <!-- <input type="text" name="email" placeholder="Level"/> -->
       {{form.level}}
-      <div class="icon right buttondown"><i class="fas fa-layer-group"></i></div>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="password">
-      <div class="icon left"><i class="lock"></i></div>
+      <!-- <div class="icon left"><i class="lock"></i></div> -->
       <!-- <input type="text" name="password" placeholder="Location"/> -->
       {{form.location}}
-      <div class="icon right buttondown"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="password">
-      <div class="icon left"><i class="lock"></i></div>
+      <!-- <div class="icon left"><i class="lock"></i></div> -->
       <!-- <input type="date" name="password" placeholder="Dead Line"/> -->
       {{form.datefield}}
       <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     
     <fieldset class="password">
-      <div class="icon left"><i class="lock"></i></div>
+      <!-- <div class="icon left"><i class="lock"></i></div> -->
       <!-- <input type="text" name="password" placeholder="Description"/> -->
       {{form.tags}}
-      <div class="icon right buttondown"><i class="fas fa-tags"></i></div>
+      <div class="icon right buttondown"><i class="arrow"></i></div>
     </fieldset>
     <fieldset class="password">
-      <div class="icon left"><i class="lock"></i></div>
+      <!-- <div class="icon left"><i class="lock"></i></div> -->
       <!-- <input type="text" name="password" placeholder="Requirements:req1,req2.."/> -->
       {{form.requirements}}
       <div class="icon right buttondown"><i class="arrow"></i></div>

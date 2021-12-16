@@ -16,6 +16,7 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.utils.decorators import method_decorator
 import  time
 from datetime import date
+from .search import *
 # from django.http import HttpResponse
 # Create your views here.
 
@@ -127,8 +128,11 @@ def internships(request):
 
         myobject= {"saved":flagSavedInternship,"intship":intship}
 
-        if intship.date > date.today():
+        if intship.date < date.today():
             isclosedintsh = intship.is_closed = True
+            print(intship.date ,date.today())
+        else:
+            print("False")
             
         if intship.is_closed == False:
             arrayinternships.append(myobject)
@@ -136,6 +140,7 @@ def internships(request):
 
     if request.method != "POST":
             form =InternshipForm()
+            
     else:
         form=InternshipForm(request.POST, request.FILES)
         if form.is_valid():
@@ -153,6 +158,8 @@ def internships(request):
             datagiven.save()
 
             return redirect("home")
+
+    
     
     
 
@@ -351,3 +358,23 @@ def contact(request):
 
     context={"form":form}
     return render(request, "pages/contact.html",context)
+
+
+@csrf_exempt
+def ajaxrequest(request):
+   
+    major=request.GET.get("major")
+    place=request.GET.get("place")
+    tag=request.GET.get("tag")
+
+    data={}
+    if request.is_ajax():
+        print(getprodFiltered(major,place,tag))
+            
+        
+        
+        data['result']="ajax"
+        
+    else:
+        data['result']='Not Ajax'
+    return JsonResponse(data)
