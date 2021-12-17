@@ -117,26 +117,20 @@ def internships(request):
     arrayinternships=[]
     for  intnum,intship in enumerate(internships):
         
-        try:
-            savedInternships= WishInternship.objects.filter(user=request.user)
-            str(intship) == str(savedInternships[intnum])
-            flagSavedInternship = "exist"
-            
-        except:
-            flagSavedInternship = False
-           
+        
+          
+        if WishInternship.objects.filter(user=request.user,internship=intship):
+            myobject= {"saved":"exist","intship":intship}
+        else:
+            myobject= {"saved":False,"intship":intship}
 
-        myobject= {"saved":flagSavedInternship,"intship":intship}
-
+        print(myobject)
         if intship.date < date.today():
             isclosedintsh = intship.is_closed = True
-            print(intship.date ,date.today())
-        else:
-            print("False")
             
-        if intship.is_closed == False:
+        else:
             arrayinternships.append(myobject)
-        
+            
 
     if request.method != "POST":
             form =InternshipForm()
