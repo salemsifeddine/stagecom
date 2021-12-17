@@ -7,7 +7,7 @@ strip_words= ["an","a","on","in","from","for",'by',"not",'of','then',"to","with"
 
 
 
-def getprodFiltered(major, place, tag):
+def getprodFiltered(major, place, tag,request):
     # words=prepare_txt(search_text)
     internships=Internships.objects.all()
     result={}
@@ -19,24 +19,30 @@ def getprodFiltered(major, place, tag):
     internshipsfiltered = internships.filter(Q(title__icontains =major) | Q(description__icontains=tag) | Q(location__icontains=place) )
     
     
-    
-    # try:
-    #     slicenumber=int(val)
-        
-       
-    #     seted=set(internshipsfiltered[:slicenumber])
-    # except:
+    arrayfiltered=[]
+    for intshipfilt in internshipsfiltered:
+        objectint={
+            "id":intshipfilt.id,
+            "title":intshipfilt.title,
+            "level":intshipfilt.level,
+            "image":intshipfilt.image.url,
+            "description":intshipfilt.description,
+            "exist":False
+        }
+        arrayfiltered.append(objectint)
+        if request.user.is_authenticated:
+            if WishInternship.objects.filter(user=request.user,internship=intshipfilt):
+                objectint["exist"]=True
 
-    # seted=set(internshipsfiltered)
    
-    result['internships']=internshipsfiltered
+    # result['internships']=internshipsfiltered
+    result['internships']=arrayfiltered
 
-    if len(result["internships"]) == len(set(internshipsfiltered)):
-        result['all']="yes"
-    else:
-        result['all']="no"
+   
+
     
-    print(result)
+    
+   
     return result
 
 

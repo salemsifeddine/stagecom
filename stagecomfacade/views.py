@@ -369,11 +369,11 @@ def ajaxrequest(request):
 
     data={}
     if request.is_ajax():
-        print(getprodFiltered(major,place,tag))
+        print(getprodFiltered(major,place,tag,request))
             
         
         
-        data['result']="ajax"
+        data=getprodFiltered(major,place,tag,request)
         
     else:
         data['result']='Not Ajax'
