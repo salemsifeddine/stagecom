@@ -1,8 +1,10 @@
 {% extends "pages/base.html" %}
 {% load static %}
 
+
 {% block css %}
   <link rel="stylesheet" href="{% static './css/courses.css' %}">
+  <link rel="stylesheet" href="{% static './css/internships.css' %}">
 {% endblock css %}
 
 
@@ -37,7 +39,7 @@
         </p>
        </div>
        <div class="rowcrss">
-        <div class="course">
+         <div class="course">
             <div class="imgcourse">
                 <img src="{% static './images/course.jpg' %}" alt="">
             </div>
@@ -92,66 +94,259 @@
                  <p>Get Enrolled <i class="lni lni-cart"></i></p>
                  </div>
             </div>
-        </div>
-        <div class="course">
-            <div class="imgcourse">
-                <img src="{% static './images/course.jpg' %}" alt="">
-            </div>
-            
-            <div class="infocourse">
-                <div class="course-level">
-                    all levels
+        </div> 
+        {% for course in courses %}  
+            <div class="course">
+                <div class="imgcourse">
+                    <img src="{% static course.image.url %%}" alt="">
                 </div>
-                <div class="save-course">
-                 <i class="lni lni-bookmark"></i>
-                </div>
-
-                <div class="course-rate">
-                 <i class="lni lni-star-filled"></i>
-                 <i class="lni lni-star-filled"></i>
-                 <i class="lni lni-star-filled"></i>
-                 <i class="lni lni-star-filled"></i>
-                 <i class="lni lni-star-filled"></i>
-                </div>
-
-                <div class="title-course">
-                    <p>
-                        Django Framework - build websites with django, python.
-                    </p>
-                </div>
-
-                <div class="timing-views">
-                    <div class="views">
-                     <i class="lni lni-users"></i> <span>2</span>
+                
+                <div class="infocourse">
+                    <div class="course-level">
+                        {{course.level}}
                     </div>
-                    <div class="timing">
-                     <i class="lni lni-alarm-clock"></i> <span>22h 30min</span>
+                    <div class="save-course">
+                    <i class="lni lni-bookmark"></i>
+                    </div>
+
+                    <div class="course-rate">
+                       {% if course.rate == 0 %}
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       {% endif %}
+                       {% if course.rate == 1 %}
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       {% endif %}
+                       {% if course.rate == 2 %}
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       {% endif %}
+                       {% if course.rate == 3 %}
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-empty"></i>
+                       <i class="lni lni-star-empty"></i>
+                       {% endif %}
+                       {% if course.rate == 4 %}
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-empty"></i>
+                       {% endif %}
+                       {% if course.rate == 5 %}
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       <i class="lni lni-star-filled"></i>
+                       {% endif %}
+                       
+                    </div>
+
+                    <div class="title-course">
+                        <p>
+                            {{course.title}}
+                        </p>
+                    </div>
+
+                    <div class="timing-views">
+                        <div class="views">
+                        <i class="lni lni-users"></i> <span>{{course.peopleenrolled}}</span>
+                        </div>
+                        <div class="timing">
+                        <i class="lni lni-alarm-clock"></i> <span>{{course.duration}}</span>
+                        </div>
+                    </div>
+                
+                    <div class="course-by">
+                        <div class="imguser">
+                            <a href="{% static './images/me.jpg' %}">
+                                <img src="{% static './images/me.jpg' %}" alt="">
+                            </a>
+                        </div>
+                        
+                        <p><span>By </span>{{course.company}}</p>
+                    </div>
+
+                </div>
+                <div class="enroll-price">
+                    <div class="price">
+                    <strong>{{course.price}}</strong>
+                    </div>
+                    <div class="enroll">
+                    <p>Get Enrolled <i class="lni lni-cart"></i></p>
                     </div>
                 </div>
-               
-                <div class="course-by">
-                    <div class="imguser">
-                        <a href="{% static './images/me.jpg' %}">
-                            <img src="{% static './images/me.jpg' %}" alt="">
-                        </a>
-                    </div>
-                    
-                    <p><span>By </span>Salem sif eddine</p>
-                </div>
-
             </div>
-            <div class="enroll-price">
-                <div class="price">
-                 <strong>Free</strong>
-                </div>
-                <div class="enroll">
-                 <p>Get Enrolled <i class="lni lni-cart"></i></p>
-                 </div>
-            </div>
-        </div>
-
+        {% endfor %}
        </div>
     </div>
     
 </section>
+{% if company %}
+<div class="wrapper2" id="imageinsternshipuploaderCont">
+  
+  <div class="container2">
+    
+    <h3>Upload a Background Image for your Internship</h3>
+    <div class="upload-container">
+      <div class="border-container">
+        <div class="icons fa-4x">
+          <input type="file" id="fileuploadImageBack">
+          <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+          <!-- <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+          <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i> -->
+        </div>
+        <!--<input type="file" id="file-upload">-->
+        <p>Drag and drop files here, or 
+          <a href="#browse" id="file-browser">browse</a> your computer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- add btn -->
+<div class="add-button">
+  <div class="sub-button tl"></div>
+  <div class="sub-button tr"></div>
+  <a href="#unpaied" title="unpaied internship"><div class="sub-button bl"></div></a>
+  <a href="#paied" title="paied internship"><div class="sub-button br"></div></a>
+</div>
+
+
+<!-- great form -->
+<div class="form-internship" >
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <ul class="items">
+
+  </ul>
+  <fieldset class="username enable">
+    <!-- <div class="icon left"><i class="fas fa-heading"></i></div> -->
+    <!-- <input type="text" name="username" placeholder="Title"/> -->
+    {{form.title}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="email">
+    <!-- <div class="icon left"><i class="letter"></i></div> -->
+    <!-- <input type="text" name="email" placeholder="Level"/> -->
+    {{form.level}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    <!-- <div class="icon left"><i class="lock"></i></div> -->
+    <!-- <input type="text" name="password" placeholder="Location"/> -->
+    {{form.location}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    <!-- <div class="icon left"><i class="lock"></i></div> -->
+    <!-- <input type="date" name="password" placeholder="Dead Line"/> -->
+    {{form.datefield}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  
+  <fieldset class="password">
+    <!-- <div class="icon left"><i class="lock"></i></div> -->
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.tags}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    <!-- <div class="icon left"><i class="lock"></i></div> -->
+    <!-- <input type="text" name="password" placeholder="Requirements:req1,req2.."/> -->
+    {{form.requirements}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+   
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.description}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.imageFile}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password" style="box-shadow: none;background: transparent;">
+    
+    <button style="display: flex; margin:auto" type="submit" class="button">Add To Internships section<i class="fas fa-paper-plane"></i></button>
+   
+  </fieldset>
+  <!-- <fieldset class="thanks">
+    <div class="icon left"><i class="heart"></i></div>
+    <p>Thanks for your time</p>
+    <div class="icon right"><i class="heart"></i></div>
+  </fieldset> -->
+</form>
+</div>
+{% else %}
+  <span>Student 11</span>
+{% endif %}
+<script>
+    document.querySelector(".br").addEventListener("click",function(){
+        $(".form-internship").fadeIn(150)
+        $(".form-internship").animate({"height":100 + "vh"},500)
+        $(".form-internship form").fadeIn(600)
+    });
+    document.querySelector(".form-internship").addEventListener("click",function(){
+        // $(".form-internship form").animate({"width":0,"height":0},300)
+        // $(".form-internship").animate({"width":0 + "%"},500)
+        $(".form-internship").animate({"height":0 + "vh"},300)
+        $(".form-internship form").hide(200)
+        $(".form-internship").fadeOut(300)
+        
+    })
+    
+    document.querySelector(".form-internship form").addEventListener("click",function(e){
+        
+        e.stopPropagation();
+        
+    })
+    
+    function ajaxrequest(){
+        majorF=document.querySelector(".major")
+        placeF=document.querySelector(".place")
+        countryF=document.querySelector(".tag")
+        $.ajax({
+            type:"get",
+            url: "/ajaxreq/",
+            data: {
+                     'major': majorF.value,
+                     'place': placeF.value,
+                     'tag': countryF.value
+                   },
+            success: function(data) {
+                console.log(data)
+                searchInternship(data);
+               
+                
+                    },
+            error: function(){
+                    console.log("error");
+                 }
+            });
+    }
+    
+    document.querySelector(".marginbtm10").addEventListener("click",function(e){
+        e.preventDefault();
+        ajaxrequest();
+    })
+    
+</script>
 {% endblock content %}

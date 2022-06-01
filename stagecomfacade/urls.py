@@ -14,5 +14,6 @@ urlpatterns = [
     path('blog/',views.blog, name="blog"),
     path('blogDet/<int:pk>',views.BlogDet.as_view(), name="blogDet"),
     path('contact',views.contact, name="contact"),
-     path('ajaxreq/', views.ajaxrequest, name='ajaxreq'),
+    path('ajaxreq/', views.ajaxrequest, name='ajaxreq'),
+    path('companyinfo/',views.companyinfos, name="companyinfos"),
 ]

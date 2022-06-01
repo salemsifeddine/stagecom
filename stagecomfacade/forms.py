@@ -1,3 +1,4 @@
+from email.policy import default
 from django.contrib.auth.models import User
 from django.contrib.auth import forms
 from django.db import models
@@ -91,6 +92,23 @@ class InternshipForm(forms.Form):
     imageFile = forms.FileField( widget=forms.FileInput(attrs={"style":"font-size: 14px;padding-top:5px"}))
     requirements =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
     description =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
+    class Meta:
+        model=Internships
+        fields="__all__"
+
+class CourseForm(forms.Form):
+    title = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Title'}))
+    level = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Level'}))
+    location = forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
+    tags = forms.CharField(max_length=63,widget=forms.TextInput(attrs={"placeholder": 'Tags: tag1,tag2..'}))
+    datefield=forms.DateField(widget=forms.DateInput(attrs={"placeholder": 'date',"type":"date"}))
+    imageFile = forms.FileField( widget=forms.FileInput(attrs={"style":"font-size: 14px;padding-top:5px"}))
+    requirements =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
+    description =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
+    rate=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
+    price=forms.CharField(max_length=63,widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
+    duration=forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Title'}))
+    peopleenrolled=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
     class Meta:
         model=Internships
         fields="__all__"

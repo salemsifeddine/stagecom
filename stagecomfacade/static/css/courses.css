@@ -150,6 +150,7 @@
 
 .title-course p{
     font-size: 16px;
+    min-height: 70px;
 }
 
 .timing-views{

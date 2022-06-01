@@ -52,22 +52,27 @@ def register(request):
                 if typeuser == "Company":
                     comp, created = Company.objects.get_or_create(company=new_user, description="")
                     print("company created succesfully")
+                    return redirect('companyinfos')
                 elif typeuser == "Student":
                     stu, created = Student.objects.get_or_create(student=new_user)
-                    print("Student created succesfully")       
+                    print("Student created succesfully")  
+                    return redirect('home')     
 
 
                 
             
             
-            return redirect('home')
+            
 
 
 
-    context={"title":"Register","courses":Course.objects.all(),"form":form}
+    context={"title":"Register","courses":Courses.objects.all(),"form":form}
     return render(request, "pages/register.html",context)
 
+def companyinfos(request):
 
+
+    return render(request,"pages/companyinfos.html",{})
 
 def login(request):
    
@@ -94,8 +99,38 @@ def logout(response):
     return redirect("home")
 
 def courses(request):
+    company=False
+    student=False
+    
+    try:
+        Company.objects.get(company=request.user)
+        company = True
 
-    context={"title":"Courses","courses":Course.objects.all()}
+        
+    except:
+        student =True
+    if request.method != "POST":
+            form =InternshipForm()
+            
+    else:
+        form=InternshipForm(request.POST, request.FILES)
+        if form.is_valid():
+            title= form.cleaned_data.get('title')
+            level=form.cleaned_data.get('level')
+            location=form.cleaned_data.get('location')
+            tags=form.cleaned_data.get('tags')
+            datefield=form.cleaned_data.get('datefield')
+            imageFile=form.cleaned_data.get('imageFile')
+            requirements=form.cleaned_data.get('requirements')
+            description=form.cleaned_data.get('description')
+
+            datagiven=Internships(title=title,level=level,company=request.user,location=location,date=datefield,
+                tags=tags,image=imageFile,requirements=requirements,description=description)
+            datagiven.save()
+
+            return redirect("home")
+            
+    context={"title":"Courses","courses":Courses.objects.all(),"company":company,"student":student}
     return render(request, "pages/courses.html",context)
 
 def internships(request):
