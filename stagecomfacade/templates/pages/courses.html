@@ -172,8 +172,8 @@
                 
                     <div class="course-by">
                         <div class="imguser">
-                            <a href="{% static './images/me.jpg' %}">
-                                <img src="{% static './images/me.jpg' %}" alt="">
+                          <a href="/static{{  course.company_photo }}">
+                            <img src="/static{{  course.company_photo }}" alt="_">
                             </a>
                         </div>
                         
@@ -183,7 +183,11 @@
                 </div>
                 <div class="enroll-price">
                     <div class="price">
-                    <strong>{{course.price}}</strong>
+                      {% if course.price == 0.0 %}
+                      <strong>Free</strong>
+                      {% else %}
+                      <strong>{{course.price}}</strong>
+                      {% endif %}
                     </div>
                     <div class="enroll">
                     <p>Get Enrolled <i class="lni lni-cart"></i></p>
@@ -283,9 +287,33 @@
     {{form.imageFile}}
     <div class="icon right buttondown"><i class="arrow"></i></div>
   </fieldset>
+  <fieldset class="password">
+    
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.rate}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.price}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.duration}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
+  <fieldset class="password">
+    
+    <!-- <input type="text" name="password" placeholder="Description"/> -->
+    {{form.peopleenrolled}}
+    <div class="icon right buttondown"><i class="arrow"></i></div>
+  </fieldset>
   <fieldset class="password" style="box-shadow: none;background: transparent;">
     
-    <button style="display: flex; margin:auto" type="submit" class="button">Add To Internships section<i class="fas fa-paper-plane"></i></button>
+    <button style="display: flex; margin:auto" type="submit" class="button">Add To Courses section<i class="fas fa-paper-plane"></i></button>
    
   </fieldset>
   <!-- <fieldset class="thanks">
@@ -298,55 +326,9 @@
 {% else %}
   <span>Student 11</span>
 {% endif %}
-<script>
-    document.querySelector(".br").addEventListener("click",function(){
-        $(".form-internship").fadeIn(150)
-        $(".form-internship").animate({"height":100 + "vh"},500)
-        $(".form-internship form").fadeIn(600)
-    });
-    document.querySelector(".form-internship").addEventListener("click",function(){
-        // $(".form-internship form").animate({"width":0,"height":0},300)
-        // $(".form-internship").animate({"width":0 + "%"},500)
-        $(".form-internship").animate({"height":0 + "vh"},300)
-        $(".form-internship form").hide(200)
-        $(".form-internship").fadeOut(300)
-        
-    })
-    
-    document.querySelector(".form-internship form").addEventListener("click",function(e){
-        
-        e.stopPropagation();
-        
-    })
-    
-    function ajaxrequest(){
-        majorF=document.querySelector(".major")
-        placeF=document.querySelector(".place")
-        countryF=document.querySelector(".tag")
-        $.ajax({
-            type:"get",
-            url: "/ajaxreq/",
-            data: {
-                     'major': majorF.value,
-                     'place': placeF.value,
-                     'tag': countryF.value
-                   },
-            success: function(data) {
-                console.log(data)
-                searchInternship(data);
-               
-                
-                    },
-            error: function(){
-                    console.log("error");
-                 }
-            });
-    }
-    
-    document.querySelector(".marginbtm10").addEventListener("click",function(e){
-        e.preventDefault();
-        ajaxrequest();
-    })
-    
-</script>
+{% block js %}
+
+<script src="{% static 'js/internship.js' %}"></script>
+
+{% endblock js %}
 {% endblock content %}

@@ -14,6 +14,7 @@ from django.http import JsonResponse
 from django.views.generic.edit import FormMixin
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 import  time
 from datetime import date
 from .search import *
@@ -69,10 +70,27 @@ def register(request):
     context={"title":"Register","courses":Courses.objects.all(),"form":form}
     return render(request, "pages/register.html",context)
 
+@login_required
 def companyinfos(request):
+    if request.method != "POST":
+            form =CompanyForm()
+            
+    else:
+        form=CompanyForm(request.POST, request.FILES)
+        if form.is_valid():
+            image= form.cleaned_data.get('image')
+           
+            description=form.cleaned_data.get('description')
 
+            datagiven=Company(company=request.user,image=image,description=description)
+            datagiven.save()
 
-    return render(request,"pages/companyinfos.html",{})
+            return redirect("home")
+    
+
+    context={"form":form,"user":request.user.username}
+   
+    return render(request,"pages/companyinfos.html",context)
 
 def login(request):
    
@@ -99,6 +117,7 @@ def logout(response):
     return redirect("home")
 
 def courses(request):
+    
     company=False
     student=False
     
@@ -110,10 +129,10 @@ def courses(request):
     except:
         student =True
     if request.method != "POST":
-            form =InternshipForm()
+            form =CourseForm()
             
     else:
-        form=InternshipForm(request.POST, request.FILES)
+        form=CourseForm(request.POST, request.FILES)
         if form.is_valid():
             title= form.cleaned_data.get('title')
             level=form.cleaned_data.get('level')
@@ -123,14 +142,22 @@ def courses(request):
             imageFile=form.cleaned_data.get('imageFile')
             requirements=form.cleaned_data.get('requirements')
             description=form.cleaned_data.get('description')
+            price=form.cleaned_data.get('price')
+            rate=form.cleaned_data.get('rate')
+            duration=form.cleaned_data.get('duration')
+            peopleenrolled=form.cleaned_data.get('peopleenrolled')
+            company_photo=Company.objects.all().filter(company=request.user).first().image.url
 
-            datagiven=Internships(title=title,level=level,company=request.user,location=location,date=datefield,
-                tags=tags,image=imageFile,requirements=requirements,description=description)
+            datagiven=Courses(title=title,level=level,company=request.user,location=location,date=datefield,
+                tags=tags,image=imageFile,requirements=requirements,description=description,
+                price=price,rate=rate,duration=duration,peopleenrolled=peopleenrolled,company_photo=company_photo)
+
             datagiven.save()
 
             return redirect("home")
             
-    context={"title":"Courses","courses":Courses.objects.all(),"company":company,"student":student}
+    context={"title":"Courses","courses":Courses.objects.all(),"company":company,"form":form,
+    "student":student}
     return render(request, "pages/courses.html",context)
 
 def internships(request):

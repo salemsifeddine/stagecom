@@ -1,5 +1,6 @@
 
 from email.policy import default
+from turtle import mode
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
@@ -29,6 +30,13 @@ class Internships(models.Model):
     def __str__(self):
         return self.title
 
+# class CompanyProfile(models.Model):
+#     company=models.ForeignKey(User,blank=True)
+#     image=models.ImageField(blank=True,upload_to="Company_profiles")
+
+#     def __str__(self):
+#         return self.company.name
+
 class Courses(models.Model):
     title=models.CharField(max_length=255)
     image=models.ImageField(blank=False, upload_to="Courses_images")
@@ -42,9 +50,10 @@ class Courses(models.Model):
     description=models.TextField(blank=True)
     is_closed=models.BooleanField(default=False)
     rate=models.IntegerField(default=2,max_length=1)
-    price=models.FloatField(default=0)
+    price=models.IntegerField(default=0)
     duration=models.TimeField(max_length=5)
     peopleenrolled=models.IntegerField(default=0)
+    company_photo=models.ImageField(blank=True)
     
     def __str__(self):
         return self.title

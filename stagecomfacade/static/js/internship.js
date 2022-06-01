@@ -77,9 +77,12 @@ $("#file-browser").click(function(e) {
   $("#file-upload").trigger("click");
 });
 
-document.getElementById("file-browser").addEventListener("click",function(){
-    document.getElementById("fileuploadImageBack").click()
-})
+if(document.getElementById("file-browser")){
+    document.getElementById("file-browser").addEventListener("click",function(){
+        document.getElementById("fileuploadImageBack").click()
+    })
+}
+
 
 // great form 
 

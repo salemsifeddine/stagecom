@@ -105,10 +105,18 @@ class CourseForm(forms.Form):
     imageFile = forms.FileField( widget=forms.FileInput(attrs={"style":"font-size: 14px;padding-top:5px"}))
     requirements =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
     description =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
-    rate=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
-    price=forms.CharField(max_length=63,widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
-    duration=forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'Title'}))
-    peopleenrolled=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Title'}))
+    rate=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'rate'}))
+    price=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'price'}))
+    duration=forms.CharField(max_length=63,widget=forms.TextInput(attrs={'placeholder': 'duration'}))
+    peopleenrolled=forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'people enrolled'}))
     class Meta:
-        model=Internships
+        model=Courses
+        fields="__all__"
+
+
+class CompanyForm(forms.Form):
+    description =forms.CharField(widget=forms.Textarea(attrs={"cols":"0","rows":"0","style":"padding: 5px;min-height:59.9px; max-height: 60px;min-width:449.9px;max-width:450px"}))
+    image=forms.ImageField( widget=forms.FileInput(attrs={"style":"font-size: 14px;padding-top:5px"}))
+    class Meta:
+        model = Company
         fields="__all__"

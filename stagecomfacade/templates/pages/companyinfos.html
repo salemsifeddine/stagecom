@@ -1,0 +1,55 @@
+{% extends "pages/base.html" %}
+
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static './css/internships.css' %}">
+{% endblock css %}
+
+{% block content %}
+    <h2 style="text-align:center;padding-top:25px">Hi {{user}}</h2>
+    <fieldset class="password" style="box-shadow: none;background: transparent;margin-top:20px">
+        
+        <button style="display: flex; margin:auto" type="submit" class="button brr">Add Company Informations<i class="fas fa-paper-plane"></i></button>
+       
+      </fieldset>
+    <!-- great form -->
+<div class="form-internship" >
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <ul class="items">
+    
+      </ul>
+       
+      <fieldset class="password enable">
+        
+        <!-- <input type="text" name="password" placeholder="Description"/> -->
+        {{form.description}}
+        <div class="icon right buttondown"><i class="arrow"></i></div>
+      </fieldset>
+      <fieldset class="password">
+        
+        <!-- <input type="text" name="password" placeholder="Description"/> -->
+        {{form.image}}
+        <div class="icon right buttondown"><i class="arrow"></i></div>
+      </fieldset>
+      <fieldset class="password" style="box-shadow: none;background: transparent;">
+        
+        <button style="display: flex; margin:auto" type="submit" class="button">Save<i class="fas fa-paper-plane"></i></button>
+       
+      </fieldset>
+      <!-- <fieldset class="thanks">
+        <div class="icon left"><i class="heart"></i></div>
+        <p>Thanks for your time</p>
+        <div class="icon right"><i class="heart"></i></div>
+      </fieldset> -->
+    </form>
+    </div>
+ 
+
+{% endblock content %}
+{% block js %}
+
+<script src="{% static 'js/compinfo.js' %}"></script>
+
+{% endblock js %}
