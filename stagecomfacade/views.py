@@ -82,7 +82,10 @@ def companyinfos(request):
            
             description=form.cleaned_data.get('description')
 
-            datagiven=Company(company=request.user,image=image,description=description)
+            datagiven=Company.objects.get(company=request.user)
+            datagiven.image=image
+            datagiven.description=description
+            # Company(company=request.user,image=image,description=description)
             datagiven.save()
 
             return redirect("home")
@@ -124,10 +127,11 @@ def courses(request):
     try:
         Company.objects.get(company=request.user)
         company = True
-
+        print("company")
         
     except:
         student =True
+         
     if request.method != "POST":
             form =CourseForm()
             

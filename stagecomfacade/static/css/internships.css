@@ -705,6 +705,7 @@ body fieldset {
       background-color: #7b7b7b91;
       z-index: 99999999999999999999;
       display: none;
+      top: 0;
   }
   
   .form-internship form {
@@ -932,4 +933,23 @@ body fieldset {
 
   .buttondown{
     background: #f7f7f7;
+  }
+
+  .beforeatt::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 212px;
+    height: 15px;
+    display: block;
+    background-color: #FBF46D;
+    opacity: .5;
+    z-index: -1;
+  
+    right: 38%;
+  }
+  
+
+  .containerall{
+    min-height: 100vh;
   }
